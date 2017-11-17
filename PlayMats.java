@@ -76,4 +76,3 @@ public class PlayMats extends JPanel {
 		g.drawImage(mats, 515, 0, null);
 	}
 }
-
