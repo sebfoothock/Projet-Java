@@ -1,6 +1,13 @@
-package roulette;
+package Model;
 
 public class ArrayCase extends Case{
+	/**
+	 * The constructor of the differents caracteristics of a case 
+	 * @param num the number of the case
+	 * @param parity the parity (odd or even)
+	 * @param color the color (red or black)
+	 * @param intervals the interval where the case is
+	 */
 	public ArrayCase(int num, String parity, String color, int intervals) {
 		super(num, parity, color, intervals);
 		// TODO Auto-generated constructor stub
