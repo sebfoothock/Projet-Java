@@ -2,7 +2,7 @@ package model;
 import java.util.Scanner;
 /**
  * 
- * @author JULIEN
+ * @author Sébastien Raemdonck 2TL2
  * This class is the costructor to create one case of the play mat cases 
  */
 public class Case {
@@ -12,6 +12,14 @@ public class Case {
 	private String color;
 	private int intervals;
 	int column;
+	/**
+	 * The constructor of the differents caracteristics of a case 
+	 * @param num the number of the case
+	 * @param parity the parity (odd or even)
+	 * @param color the color (red or black)
+	 * @param intervals the interval where the case is 
+	 * @param column the columns where the case is  
+	 */
 	public Case(int num, String parity, String color, int intervals, int column){
 		this.num = num;
 		this.parity = parity;
