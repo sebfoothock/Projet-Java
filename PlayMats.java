@@ -1,4 +1,4 @@
-package vue;
+package View;
 /*
  *@author Raemdonck Sébastien 2TL2 
  * The JPanel Class
@@ -26,30 +26,30 @@ import javax.swing.border.EmptyBorder;
 public class PlayMats extends JPanel {
 
 	private ImageIcon image;
-	private Image tapis;
-	private Color couleur;
-	private JTextField mise;
+	private Image mats;
+	private Color color;
+	private JTextField bet;
 	private JPanel contentPane;
 
 	public PlayMats() {
 		super();
-		this.couleur = new Color(1, 123, 50);
-		super.setBackground(couleur);
+		this.color = new Color(1, 123, 50);
+		super.setBackground(color);
 		this.image = new ImageIcon(getClass().getResource("/image/roulette.png"));
-		this.tapis = image.getImage();
-		this.mise = new JTextField();
-		JButton button = new JButton("Lancer la roue");
-		JLabel label = new JLabel("Bienvenue");
+		this.mats = image.getImage();
+		this.bet = new JTextField();
+		JButton button = new JButton("Start the wheel");
+		JLabel label = new JLabel("Welcome");
 		JTextField mise = new JTextField(10);
 		/*
-		 * champ texte de taille de 10 px
+		 * The length is 10px
 		 */
 		JTextArea instruction = new JTextArea(35, 20);
 
 		button.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				instruction.append("La roulette a été lancé !\n");
-				System.out.println("La roulette a été lancé !");
+				instruction.append("The roulette had been launch !\n");
+				System.out.println("The roulette had been launch !");
 			}
 		});
 
@@ -67,12 +67,13 @@ public class PlayMats extends JPanel {
 
 		add(button);
 		add(label);
-		add(mise);
+		add(bet);
 		add(new JScrollPane(instruction));
 	}
 
 	public void paintComponent(Graphics g) {
 		super.paintComponent(g);
-		g.drawImage(tapis, 515, 0, null);
+		g.drawImage(mats, 515, 0, null);
 	}
 }
+
