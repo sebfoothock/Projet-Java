@@ -41,9 +41,12 @@ public class ViewParis extends JFrame implements ActionListener{
 	private JLabel cbParis;
 	public static JLabel paris;
 	static int numParis;
+	
 	public ViewParis(){
+		/* seb 
 		setBounds(100, 100, 798, 619);
 		setBackground(new Color(0, 128, 0));
+		*/
 		j = new JRadioButton[37];
 		// PREMIERE LIGNE
 		Box radioButtonUn = Box.createHorizontalBox();
@@ -78,6 +81,7 @@ public class ViewParis extends JFrame implements ActionListener{
 			i++;
 			i++;
 		}
+		
 		columnTwo = new JRadioButton("2 to 1");
 		columnTwo.setActionCommand("45");
 		radioButtonTrois.add(columnTwo);
@@ -151,6 +155,8 @@ public class ViewParis extends JFrame implements ActionListener{
         radioButtonSept.add(parisCinq);
         
 		//METTRE EN COULEUR
+        /* seb 
+         * déja couleur de fond pour les cases
         for(int i = 1; i <37; i++) {
         	if(i == 11) {
         		j[i].setBackground(Color.BLACK);
@@ -174,8 +180,8 @@ public class ViewParis extends JFrame implements ActionListener{
 	        	j[i].setForeground(Color.WHITE);
         	}
         }
-		
-		
+		*/
+        
         //group
         groupUn = new ButtonGroup();
         for(int i = 0; i<37; i++) {
@@ -201,7 +207,8 @@ public class ViewParis extends JFrame implements ActionListener{
         groupDeux.add(parisTrois);
         groupDeux.add(parisQuatre);
         groupDeux.add(parisCinq);
-        //le buton spin
+        
+        //le button spin
         Box spinBox = Box.createHorizontalBox();
         JButton spin = new JButton("Spin");
         spinBox.add(spin);
@@ -238,7 +245,7 @@ public class ViewParis extends JFrame implements ActionListener{
 		switch(e.getActionCommand()){
 		case "Spin":
 			if(groupDeux.getSelection() == null) {
-				paris.setText("Veuillez selectionner un montant � parier");
+				paris.setText("Veuillez selectionner un montant à parier");
 			} else if(groupUn.getSelection() == null) {
 				paris.setText("Veuillez selectionner une case sur laquelle parier");
 			} else if(red.isSelected()) {
