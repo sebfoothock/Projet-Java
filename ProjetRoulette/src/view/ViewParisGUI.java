@@ -18,40 +18,31 @@ import model.ModelParis;
 
 import javax.swing.JRadioButton;
 import javax.swing.SwingConstants;
+
+import controller.ControllerParis;
  
 public class ViewParisGUI extends JPanel implements ActionListener{
  
     private static final long serialVersionUID = 1L;
  
-    /**
-     * @param args
-     */
-    /**
-     
-    public static void main(String[] args) {
-        new ViewParisFenetre();
- 
-    }
- * 
-     * @param args
-     */
+
     private Image img;
-    
+    model.Sound sound;
     JLabel balanceAmount;
     public static JLabel totalWon;
     public static JLabel totalLost;
     public static JLabel totalWL;
-    public static JLabel paris;
-    public static JLabel nbGagnee;
-	public static JLabel nbPerdu;
-	
-    static int numParis;
-    
-	public static JLabel lblMessageDerreur;
+    public static JLabel bet;
+    public static JLabel nbWon;
+	public static JLabel nbFailed;
+	JLabel lblTotalWon;
+	public static JLabel errorMsg;
 	private JLabel lblTotalLost;
 	private JLabel lblWl;
-	public static JLabel partiePerdue;
-	public static JLabel partieGagnee;
+	public static JLabel gameLost;
+	public static JLabel gameWon;
+	
+	static int numBet;
 	
     JRadioButton j0;
     //
@@ -111,17 +102,18 @@ public class ViewParisGUI extends JPanel implements ActionListener{
 	JRadioButton columnTwo;
 	JRadioButton columnThree;
 	//
-	JRadioButton parisUn;
-	JRadioButton parisDeux;
-	JRadioButton parisTrois;
-	JRadioButton parisQuatre;
-	JRadioButton parisCinq;
+	JRadioButton betOne;
+	JRadioButton betTwo;
+	JRadioButton betThree;
+	JRadioButton betFour;
+	JRadioButton betFive;
 	//
-	ButtonGroup groupUn;
-	ButtonGroup groupDeux;
+	ButtonGroup groupOne;
+	ButtonGroup groupTwo;
 	//
-	JButton spin;
+	private JButton spin;
 	JButton reset;
+	JButton quit;
 	// 
 	
 
@@ -138,9 +130,9 @@ public class ViewParisGUI extends JPanel implements ActionListener{
         balanceAmount.setForeground(Color.WHITE);
         balanceAmount.setFont(new Font("Stencil", Font.PLAIN, 16));
         
-        paris = new JLabel("2500 \u20AC");
-        paris.setForeground(Color.WHITE);
-        paris.setFont(new Font("Stencil", Font.PLAIN, 16));
+        bet = new JLabel("2500 \u20AC");
+        bet.setForeground(Color.WHITE);
+        bet.setFont(new Font("Stencil", Font.PLAIN, 16));
         
         columnThree = new JRadioButton("3rd");
         columnThree.setFont(new Font("Stencil", Font.PLAIN, 14));
@@ -438,39 +430,38 @@ public class ViewParisGUI extends JPanel implements ActionListener{
         j36.setActionCommand("36");
         
        
-        spin = new JButton("SPIN");
-        spin.setBackground(Color.BLACK);
-        spin.setForeground(Color.WHITE);
-        spin.setFont(new Font("Stencil", Font.PLAIN, 28));
-        spin.addActionListener(this);
-        spin.setOpaque(false);
         
-        parisUn = new JRadioButton("");
-        parisUn.setActionCommand("1");
-        parisUn.setOpaque(false);
+        betOne = new JRadioButton("");
+        betOne.setHorizontalAlignment(SwingConstants.RIGHT);
+        betOne.setActionCommand("1");
+        betOne.setOpaque(false);
         
-        parisDeux = new JRadioButton("");
-        parisDeux.setActionCommand("5");
-        parisDeux.setOpaque(false);
+        betTwo = new JRadioButton("");
+        betTwo.setHorizontalAlignment(SwingConstants.CENTER);
+        betTwo.setActionCommand("5");
+        betTwo.setOpaque(false);
         
-        parisTrois = new JRadioButton("");
-        parisTrois.setOpaque(false);
-        parisTrois.setActionCommand("50");
+        betThree = new JRadioButton("");
+        betThree.setHorizontalAlignment(SwingConstants.RIGHT);
+        betThree.setOpaque(false);
+        betThree.setActionCommand("50");
         
-        parisQuatre = new JRadioButton("");
-        parisQuatre.setOpaque(false);
-        parisQuatre.setActionCommand("100");
+        betFour = new JRadioButton("");
+        betFour.setHorizontalAlignment(SwingConstants.RIGHT);
+        betFour.setOpaque(false);
+        betFour.setActionCommand("100");
         
-        parisCinq = new JRadioButton("");
-        parisCinq.setActionCommand("500");
-        parisCinq.setOpaque(false);
+        betFive = new JRadioButton("");
+        betFive.setHorizontalAlignment(SwingConstants.RIGHT);
+        betFive.setActionCommand("500");
+        betFive.setOpaque(false);
        
         
-        lblMessageDerreur = new JLabel("Veuillez parier");
-        lblMessageDerreur.setForeground(Color.WHITE);
-        lblMessageDerreur.setFont(new Font("Stencil", Font.PLAIN, 20));
+        errorMsg = new JLabel("Let's bet !");
+        errorMsg.setForeground(Color.WHITE);
+        errorMsg.setFont(new Font("Stencil", Font.PLAIN, 20));
         
-        JLabel lblTotalWon = new JLabel("Total won");
+        lblTotalWon = new JLabel("Total won");
         lblTotalWon.setForeground(Color.WHITE);
         lblTotalWon.setFont(new Font("Stencil", Font.PLAIN, 16));
         
@@ -486,66 +477,67 @@ public class ViewParisGUI extends JPanel implements ActionListener{
         totalWon.setFont(new Font("Stencil", Font.PLAIN, 20));
         totalWon.setForeground(Color.WHITE);
         
-        groupUn = new ButtonGroup();
-        groupUn.add(j0);
-        groupUn.add(j1);
-        groupUn.add(j2);
-        groupUn.add(j3);
-        groupUn.add(j4);
-        groupUn.add(j5);
-        groupUn.add(j6);
-        groupUn.add(j7);
-        groupUn.add(j8);
-        groupUn.add(j9);
-        groupUn.add(j10);
-        groupUn.add(j11);
-        groupUn.add(j12);
-        groupUn.add(j13);
-        groupUn.add(j14);
-        groupUn.add(j15);
-        groupUn.add(j16);
-        groupUn.add(j17);
-        groupUn.add(j18);
-        groupUn.add(j19);
-        groupUn.add(j20);
-        groupUn.add(j21);
-        groupUn.add(j22);
-        groupUn.add(j23);
-        groupUn.add(j24);
-        groupUn.add(j25);
-        groupUn.add(j26);
-        groupUn.add(j27);
-        groupUn.add(j28);
-        groupUn.add(j29);
-        groupUn.add(j30);
-        groupUn.add(j31);
-        groupUn.add(j32);
-        groupUn.add(j33);
-        groupUn.add(j34);
-        groupUn.add(j35);
-        groupUn.add(j36);
-        groupUn.add(red);
-        groupUn.add(black);
-        groupUn.add(even);
-        groupUn.add(odd);
-        groupUn.add(firstDiv2);
-        groupUn.add(secondDiv2);
-        groupUn.add(interOne);
-        groupUn.add(interTwo);
-        groupUn.add(interThree);	
-        groupUn.add(columnOne);
-        groupUn.add(columnTwo);
-        groupUn.add(columnThree);
+        groupOne = new ButtonGroup();
+        groupOne.add(j0);
+        groupOne.add(j1);
+        groupOne.add(j2);
+        groupOne.add(j3);
+        groupOne.add(j4);
+        groupOne.add(j5);
+        groupOne.add(j6);
+        groupOne.add(j7);
+        groupOne.add(j8);
+        groupOne.add(j9);
+        groupOne.add(j10);
+        groupOne.add(j11);
+        groupOne.add(j12);
+        groupOne.add(j13);
+        groupOne.add(j14);
+        groupOne.add(j15);
+        groupOne.add(j16);
+        groupOne.add(j17);
+        groupOne.add(j18);
+        groupOne.add(j19);
+        groupOne.add(j20);
+        groupOne.add(j21);
+        groupOne.add(j22);
+        groupOne.add(j23);
+        groupOne.add(j24);
+        groupOne.add(j25);
+        groupOne.add(j26);
+        groupOne.add(j27);
+        groupOne.add(j28);
+        groupOne.add(j29);
+        groupOne.add(j30);
+        groupOne.add(j31);
+        groupOne.add(j32);
+        groupOne.add(j33);
+        groupOne.add(j34);
+        groupOne.add(j35);
+        groupOne.add(j36);
+        groupOne.add(red);
+        groupOne.add(black);
+        groupOne.add(even);
+        groupOne.add(odd);
+        groupOne.add(firstDiv2);
+        groupOne.add(secondDiv2);
+        groupOne.add(interOne);
+        groupOne.add(interTwo);
+        groupOne.add(interThree);	
+        groupOne.add(columnOne);
+        groupOne.add(columnTwo);
+        groupOne.add(columnThree);
       
         
-        groupDeux = new ButtonGroup();
-        groupDeux.add(parisUn);
-        groupDeux.add(parisDeux);
-        groupDeux.add(parisTrois);
-        groupDeux.add(parisQuatre);
-        groupDeux.add(parisCinq);
+        groupTwo = new ButtonGroup();
+        groupTwo.add(betOne);
+        groupTwo.add(betTwo);
+        groupTwo.add(betThree);
+        groupTwo.add(betFour);
+        groupTwo.add(betFive);
         
         totalLost = new JLabel("0 \u20AC");
+        totalLost.setHorizontalAlignment(SwingConstants.CENTER);
         totalLost.setForeground(Color.WHITE);
         totalLost.setFont(new Font("Stencil", Font.PLAIN, 20));
         
@@ -553,26 +545,26 @@ public class ViewParisGUI extends JPanel implements ActionListener{
         totalWL.setForeground(Color.WHITE);
         totalWL.setFont(new Font("Stencil", Font.PLAIN, 20));
         
-        partieGagnee = new JLabel("Partie gagn\u00E9e");
-        partieGagnee.setHorizontalAlignment(SwingConstants.CENTER);
-        partieGagnee.setForeground(Color.WHITE);
-        partieGagnee.setFont(new Font("Stencil", Font.PLAIN, 16));
+        gameWon = new JLabel("Game Won");
+        gameWon.setHorizontalAlignment(SwingConstants.CENTER);
+        gameWon.setForeground(Color.WHITE);
+        gameWon.setFont(new Font("Stencil", Font.PLAIN, 16));
         
-        nbGagnee = new JLabel("0");
-        nbGagnee.setVerticalAlignment(SwingConstants.TOP);
-        nbGagnee.setHorizontalAlignment(SwingConstants.CENTER);
-        nbGagnee.setForeground(Color.WHITE);
-        nbGagnee.setFont(new Font("Stencil", Font.PLAIN, 20));
+        nbWon = new JLabel("0");
+        nbWon.setVerticalAlignment(SwingConstants.TOP);
+        nbWon.setHorizontalAlignment(SwingConstants.CENTER);
+        nbWon.setForeground(Color.WHITE);
+        nbWon.setFont(new Font("Stencil", Font.PLAIN, 20));
         
-        partiePerdue = new JLabel("PARTIE PERDUE");
-        partiePerdue.setVerticalAlignment(SwingConstants.TOP);
-        partiePerdue.setHorizontalAlignment(SwingConstants.CENTER);
-        partiePerdue.setFont(new Font("Stencil", Font.PLAIN, 16));
-        partiePerdue.setForeground(Color.WHITE);
+        gameLost = new JLabel("Game FAiled");
+        gameLost.setVerticalAlignment(SwingConstants.TOP);
+        gameLost.setHorizontalAlignment(SwingConstants.CENTER);
+        gameLost.setFont(new Font("Stencil", Font.PLAIN, 16));
+        gameLost.setForeground(Color.WHITE);
         
-        nbPerdu = new JLabel("0");
-        nbPerdu.setForeground(Color.WHITE);
-        nbPerdu.setFont(new Font("Stencil", Font.PLAIN, 20));
+        nbFailed = new JLabel("0");
+        nbFailed.setForeground(Color.WHITE);
+        nbFailed.setFont(new Font("Stencil", Font.PLAIN, 20));
         
         reset = new JButton("RESET");
         reset.setForeground(Color.WHITE);
@@ -580,6 +572,8 @@ public class ViewParisGUI extends JPanel implements ActionListener{
         reset.setFont(new Font("Stencil", Font.PLAIN, 28));
         reset.addActionListener(this);
         reset.setOpaque(false);
+        reset.setBorderPainted(false);
+        reset.setFocusPainted(false);
         
         spin = new JButton("SPIN");
         spin.setBackground(Color.BLACK);
@@ -587,7 +581,18 @@ public class ViewParisGUI extends JPanel implements ActionListener{
         spin.setFont(new Font("Stencil", Font.PLAIN, 28));
         spin.addActionListener(this);
         spin.setOpaque(false);
-      
+        spin.setBorderPainted(false);
+        spin.setFocusPainted(false);
+        
+        quit = new JButton("QUIT");
+        quit.setVerticalAlignment(SwingConstants.TOP);
+        quit.setForeground(Color.WHITE);
+        quit.setBackground(Color.BLACK);
+        quit.setFont(new Font("Stencil", Font.PLAIN, 28));
+        quit.setOpaque(false);
+        quit.addActionListener(this);
+        quit.setBorderPainted(false);
+        quit.setFocusPainted(false);
         
         GroupLayout groupLayout = new GroupLayout(this);
         groupLayout.setHorizontalGroup(
@@ -601,32 +606,13 @@ public class ViewParisGUI extends JPanel implements ActionListener{
         			.addComponent(interThree)
         			.addContainerGap(314, Short.MAX_VALUE))
         		.addGroup(groupLayout.createSequentialGroup()
-        			.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
-        				.addGroup(groupLayout.createSequentialGroup()
-        					.addGap(280)
-        					.addComponent(lblTotalWon, GroupLayout.PREFERRED_SIZE, 95, GroupLayout.PREFERRED_SIZE))
-        				.addGroup(groupLayout.createSequentialGroup()
-        					.addGap(304)
-        					.addComponent(totalWon)))
-        			.addGap(90)
-        			.addGroup(groupLayout.createParallelGroup(Alignment.LEADING, false)
-        				.addComponent(totalLost, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        				.addComponent(lblTotalLost, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        			.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
-        				.addGroup(groupLayout.createSequentialGroup()
-        					.addGap(139)
-        					.addComponent(lblWl))
-        				.addGroup(groupLayout.createSequentialGroup()
-        					.addGap(164)
-        					.addComponent(totalWL)))
-        			.addPreferredGap(ComponentPlacement.RELATED, 228, Short.MAX_VALUE)
-        			.addGroup(groupLayout.createParallelGroup(Alignment.TRAILING)
-        				.addGroup(groupLayout.createSequentialGroup()
-        					.addComponent(paris)
-        					.addGap(102))
-        				.addGroup(groupLayout.createSequentialGroup()
-        					.addComponent(balanceAmount)
-        					.addGap(45))))
+        			.addGap(65)
+        			.addComponent(quit, GroupLayout.PREFERRED_SIZE, 146, GroupLayout.PREFERRED_SIZE)
+        			.addGap(67)
+        			.addComponent(lblTotalWon, GroupLayout.PREFERRED_SIZE, 95, GroupLayout.PREFERRED_SIZE)
+        			.addPreferredGap(ComponentPlacement.RELATED, 635, Short.MAX_VALUE)
+        			.addComponent(bet)
+        			.addGap(102))
         		.addGroup(groupLayout.createSequentialGroup()
         			.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
         				.addGroup(groupLayout.createSequentialGroup()
@@ -634,7 +620,7 @@ public class ViewParisGUI extends JPanel implements ActionListener{
         					.addComponent(j0))
         				.addGroup(groupLayout.createSequentialGroup()
         					.addGap(64)
-        					.addComponent(nbPerdu)))
+        					.addComponent(nbFailed)))
         			.addGap(29)
         			.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
         				.addGroup(groupLayout.createSequentialGroup()
@@ -647,20 +633,20 @@ public class ViewParisGUI extends JPanel implements ActionListener{
         							.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
         								.addGroup(groupLayout.createSequentialGroup()
         									.addGap(23)
-        									.addComponent(partieGagnee, GroupLayout.PREFERRED_SIZE, 151, GroupLayout.PREFERRED_SIZE))
+        									.addComponent(gameWon, GroupLayout.PREFERRED_SIZE, 151, GroupLayout.PREFERRED_SIZE))
         								.addGroup(groupLayout.createSequentialGroup()
         									.addGap(75)
-        									.addComponent(nbGagnee, GroupLayout.PREFERRED_SIZE, 34, GroupLayout.PREFERRED_SIZE)))
+        									.addComponent(nbWon, GroupLayout.PREFERRED_SIZE, 34, GroupLayout.PREFERRED_SIZE)))
         							.addPreferredGap(ComponentPlacement.UNRELATED)
-        							.addComponent(parisUn, GroupLayout.PREFERRED_SIZE, 72, GroupLayout.PREFERRED_SIZE)))
+        							.addComponent(betOne, GroupLayout.PREFERRED_SIZE, 72, GroupLayout.PREFERRED_SIZE)))
         					.addGap(30)
         					.addGroup(groupLayout.createParallelGroup(Alignment.LEADING, false)
         						.addGroup(groupLayout.createSequentialGroup()
-        							.addComponent(parisDeux, GroupLayout.PREFERRED_SIZE, 66, GroupLayout.PREFERRED_SIZE)
+        							.addComponent(betTwo, GroupLayout.PREFERRED_SIZE, 66, GroupLayout.PREFERRED_SIZE)
         							.addPreferredGap(ComponentPlacement.UNRELATED)
-        							.addComponent(parisTrois, GroupLayout.PREFERRED_SIZE, 75, GroupLayout.PREFERRED_SIZE)
+        							.addComponent(betThree, GroupLayout.PREFERRED_SIZE, 75, GroupLayout.PREFERRED_SIZE)
         							.addPreferredGap(ComponentPlacement.UNRELATED)
-        							.addComponent(parisQuatre, GroupLayout.PREFERRED_SIZE, 80, GroupLayout.PREFERRED_SIZE))
+        							.addComponent(betFour, GroupLayout.PREFERRED_SIZE, 80, GroupLayout.PREFERRED_SIZE))
         						.addGroup(groupLayout.createSequentialGroup()
         							.addComponent(red)
         							.addPreferredGap(ComponentPlacement.RELATED, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -668,18 +654,21 @@ public class ViewParisGUI extends JPanel implements ActionListener{
         					.addPreferredGap(ComponentPlacement.RELATED)
         					.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
         						.addGroup(groupLayout.createSequentialGroup()
-        							.addGap(4)
-        							.addComponent(parisCinq, GroupLayout.PREFERRED_SIZE, 77, GroupLayout.PREFERRED_SIZE)
-        							.addGap(32)
-        							.addComponent(spin)
-        							.addGap(18)
-        							.addComponent(reset))
-        						.addGroup(groupLayout.createSequentialGroup()
         							.addGap(18)
         							.addComponent(odd)
         							.addGap(59)
-        							.addComponent(secondDiv2)))
-        					.addContainerGap(179, Short.MAX_VALUE))
+        							.addComponent(secondDiv2))
+        						.addGroup(groupLayout.createSequentialGroup()
+        							.addGap(4)
+        							.addGroup(groupLayout.createParallelGroup(Alignment.TRAILING)
+        								.addComponent(balanceAmount)
+        								.addGroup(groupLayout.createSequentialGroup()
+        									.addComponent(betFive, GroupLayout.PREFERRED_SIZE, 77, GroupLayout.PREFERRED_SIZE)
+        									.addGap(32)
+        									.addComponent(spin)
+        									.addGap(18)
+        									.addComponent(reset)))))
+        					.addContainerGap(180, Short.MAX_VALUE))
         				.addGroup(groupLayout.createSequentialGroup()
         					.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
         						.addComponent(j1)
@@ -697,40 +686,55 @@ public class ViewParisGUI extends JPanel implements ActionListener{
         						.addComponent(j9))
         					.addGap(29)
         					.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
-        						.addGroup(groupLayout.createParallelGroup(Alignment.TRAILING)
-        							.addComponent(j10)
-        							.addComponent(j11))
-        						.addComponent(j12))
+        						.addGroup(groupLayout.createSequentialGroup()
+        							.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
+        								.addGroup(groupLayout.createParallelGroup(Alignment.TRAILING)
+        									.addComponent(j10)
+        									.addComponent(j11))
+        								.addComponent(j12))
+        							.addGap(18)
+        							.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
+        								.addComponent(j13)
+        								.addComponent(j14)
+        								.addComponent(j15)))
+        						.addComponent(totalWon))
         					.addGap(18)
         					.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
-        						.addComponent(j13)
-        						.addComponent(j14)
-        						.addComponent(j15))
-        					.addGap(18)
-        					.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
-        						.addComponent(j16)
-        						.addComponent(j17)
-        						.addComponent(j18))
-        					.addGap(18)
-        					.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
-        						.addComponent(j19)
-        						.addComponent(j20)
-        						.addComponent(j21))
-        					.addGap(18)
-        					.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
-        						.addComponent(j22)
-        						.addComponent(j23)
-        						.addComponent(j24))
-        					.addGap(18)
-        					.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
-        						.addComponent(j25)
-        						.addComponent(j26)
-        						.addComponent(j27))
-        					.addGap(18)
-        					.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
-        						.addComponent(j28)
-        						.addComponent(j29)
-        						.addComponent(j30))
+        						.addGroup(groupLayout.createSequentialGroup()
+        							.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
+        								.addComponent(j16)
+        								.addComponent(j17)
+        								.addComponent(j18))
+        							.addGap(18)
+        							.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
+        								.addComponent(j19)
+        								.addComponent(j20)
+        								.addComponent(j21))
+        							.addGap(18)
+        							.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
+        								.addComponent(j22)
+        								.addComponent(j23)
+        								.addComponent(j24))
+        							.addGap(18)
+        							.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
+        								.addComponent(j25)
+        								.addComponent(j26)
+        								.addComponent(j27))
+        							.addGap(18)
+        							.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
+        								.addComponent(j28)
+        								.addComponent(j29)
+        								.addComponent(j30)))
+        						.addGroup(groupLayout.createSequentialGroup()
+        							.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
+        								.addComponent(lblTotalLost)
+        								.addGroup(groupLayout.createSequentialGroup()
+        									.addGap(10)
+        									.addComponent(totalLost, GroupLayout.PREFERRED_SIZE, 102, GroupLayout.PREFERRED_SIZE)))
+        							.addGap(109)
+        							.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
+        								.addComponent(totalWL)
+        								.addComponent(lblWl))))
         					.addGap(18)
         					.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
         						.addComponent(j31)
@@ -749,341 +753,352 @@ public class ViewParisGUI extends JPanel implements ActionListener{
         					.addGap(61))))
         		.addGroup(groupLayout.createSequentialGroup()
         			.addGap(128)
-        			.addComponent(lblMessageDerreur)
+        			.addComponent(errorMsg)
         			.addContainerGap(863, Short.MAX_VALUE))
         		.addGroup(groupLayout.createSequentialGroup()
         			.addContainerGap()
-        			.addComponent(partiePerdue, GroupLayout.PREFERRED_SIZE, 131, GroupLayout.PREFERRED_SIZE)
+        			.addComponent(gameLost, GroupLayout.PREFERRED_SIZE, 131, GroupLayout.PREFERRED_SIZE)
         			.addContainerGap(1016, Short.MAX_VALUE))
         );
         groupLayout.setVerticalGroup(
-        	groupLayout.createParallelGroup(Alignment.TRAILING)
+        	groupLayout.createParallelGroup(Alignment.LEADING)
         		.addGroup(groupLayout.createSequentialGroup()
         			.addContainerGap()
-        			.addGroup(groupLayout.createParallelGroup(Alignment.BASELINE)
-        				.addComponent(balanceAmount)
-        				.addComponent(lblTotalWon)
-        				.addComponent(lblTotalLost)
-        				.addComponent(lblWl))
-        			.addPreferredGap(ComponentPlacement.RELATED)
-        			.addGroup(groupLayout.createParallelGroup(Alignment.TRAILING)
-        				.addGroup(groupLayout.createSequentialGroup()
-        					.addComponent(paris)
-        					.addGap(131)
-        					.addComponent(columnThree)
-        					.addGap(58))
-        				.addGroup(groupLayout.createSequentialGroup()
-        					.addGroup(groupLayout.createParallelGroup(Alignment.BASELINE)
-        						.addComponent(totalWon)
-        						.addComponent(totalLost)
-        						.addComponent(totalWL))
-        					.addPreferredGap(ComponentPlacement.RELATED, 132, Short.MAX_VALUE)
-        					.addGroup(groupLayout.createParallelGroup(Alignment.BASELINE)
-        						.addComponent(j3)
-        						.addComponent(j6)
-        						.addComponent(j9)
-        						.addComponent(j12)
-        						.addComponent(j15)
-        						.addComponent(j18)
-        						.addComponent(j21)
-        						.addComponent(j24)
-        						.addComponent(j27)
-        						.addComponent(j30)
-        						.addComponent(j33)
-        						.addComponent(j36))
-        					.addGap(49)))
-        			.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
-        				.addGroup(groupLayout.createParallelGroup(Alignment.BASELINE)
-        					.addComponent(columnTwo)
-        					.addComponent(j20)
-        					.addComponent(j23)
-        					.addComponent(j26)
-        					.addComponent(j29)
-        					.addComponent(j32)
-        					.addComponent(j35))
-        				.addGroup(groupLayout.createParallelGroup(Alignment.BASELINE)
-        					.addComponent(j2)
-        					.addComponent(j5)
-        					.addComponent(j8)
-        					.addComponent(j11)
-        					.addComponent(j14)
-        					.addComponent(j17)
-        					.addComponent(j0)))
-        			.addGap(58)
         			.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
         				.addGroup(groupLayout.createSequentialGroup()
-        					.addComponent(columnOne)
-        					.addGap(51)
-        					.addGroup(groupLayout.createParallelGroup(Alignment.BASELINE)
-        						.addComponent(interOne, GroupLayout.PREFERRED_SIZE, 46, GroupLayout.PREFERRED_SIZE)
-        						.addComponent(interTwo, GroupLayout.DEFAULT_SIZE, 46, Short.MAX_VALUE)
-        						.addComponent(interThree))
-        					.addGap(36))
+        					.addComponent(quit, GroupLayout.PREFERRED_SIZE, 68, GroupLayout.PREFERRED_SIZE)
+        					.addContainerGap())
         				.addGroup(groupLayout.createSequentialGroup()
         					.addGroup(groupLayout.createParallelGroup(Alignment.BASELINE)
-        						.addComponent(j1)
-        						.addComponent(j4)
-        						.addComponent(j10)
-        						.addComponent(j7)
-        						.addComponent(j13)
-        						.addComponent(j16)
-        						.addComponent(j19)
-        						.addComponent(j22)
-        						.addComponent(j25)
-        						.addComponent(j31)
-        						.addComponent(j28)
-        						.addComponent(j34))
-        					.addPreferredGap(ComponentPlacement.RELATED)))
-        			.addGroup(groupLayout.createParallelGroup(Alignment.BASELINE)
-        				.addComponent(firstDiv2)
-        				.addComponent(even)
-        				.addComponent(red)
-        				.addComponent(secondDiv2)
-        				.addComponent(odd)
-        				.addComponent(black))
-        			.addGap(73)
-        			.addComponent(lblMessageDerreur)
-        			.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
-        				.addGroup(groupLayout.createSequentialGroup()
-        					.addGap(44)
+        						.addComponent(lblTotalWon)
+        						.addComponent(lblTotalLost)
+        						.addComponent(lblWl)
+        						.addComponent(balanceAmount))
+        					.addPreferredGap(ComponentPlacement.RELATED)
         					.addGroup(groupLayout.createParallelGroup(Alignment.TRAILING)
-        						.addComponent(parisQuatre, Alignment.LEADING, GroupLayout.DEFAULT_SIZE, 48, Short.MAX_VALUE)
-        						.addComponent(parisDeux, Alignment.LEADING, GroupLayout.DEFAULT_SIZE, 48, Short.MAX_VALUE)
-        						.addComponent(parisTrois, Alignment.LEADING, GroupLayout.DEFAULT_SIZE, 48, Short.MAX_VALUE)
-        						.addComponent(parisUn, Alignment.LEADING, GroupLayout.DEFAULT_SIZE, 48, Short.MAX_VALUE)
+        						.addGroup(groupLayout.createSequentialGroup()
+        							.addComponent(bet)
+        							.addGap(131)
+        							.addComponent(columnThree)
+        							.addGap(58))
+        						.addGroup(groupLayout.createSequentialGroup()
+        							.addGroup(groupLayout.createParallelGroup(Alignment.BASELINE)
+        								.addComponent(totalLost)
+        								.addComponent(totalWL)
+        								.addComponent(totalWon))
+        							.addPreferredGap(ComponentPlacement.RELATED, 132, Short.MAX_VALUE)
+        							.addGroup(groupLayout.createParallelGroup(Alignment.BASELINE)
+        								.addComponent(j3)
+        								.addComponent(j6)
+        								.addComponent(j9)
+        								.addComponent(j12)
+        								.addComponent(j15)
+        								.addComponent(j18)
+        								.addComponent(j21)
+        								.addComponent(j24)
+        								.addComponent(j27)
+        								.addComponent(j30)
+        								.addComponent(j33)
+        								.addComponent(j36))
+        							.addGap(49)))
+        					.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
         						.addGroup(groupLayout.createParallelGroup(Alignment.BASELINE)
-        							.addComponent(spin, GroupLayout.PREFERRED_SIZE, 47, GroupLayout.PREFERRED_SIZE)
-        							.addComponent(reset))
-        						.addComponent(parisCinq, Alignment.LEADING, GroupLayout.DEFAULT_SIZE, 48, Short.MAX_VALUE))
-        					.addGap(59))
-        				.addGroup(groupLayout.createSequentialGroup()
-        					.addGap(38)
-        					.addGroup(groupLayout.createParallelGroup(Alignment.TRAILING, false)
-        						.addComponent(partiePerdue, Alignment.LEADING, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        						.addComponent(partieGagnee, Alignment.LEADING, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        					.addPreferredGap(ComponentPlacement.UNRELATED)
-        					.addGroup(groupLayout.createParallelGroup(Alignment.TRAILING, false)
+        							.addComponent(columnTwo)
+        							.addComponent(j20)
+        							.addComponent(j23)
+        							.addComponent(j26)
+        							.addComponent(j29)
+        							.addComponent(j32)
+        							.addComponent(j35))
+        						.addGroup(groupLayout.createParallelGroup(Alignment.BASELINE)
+        							.addComponent(j2)
+        							.addComponent(j5)
+        							.addComponent(j8)
+        							.addComponent(j11)
+        							.addComponent(j14)
+        							.addComponent(j17)
+        							.addComponent(j0)))
+        					.addGap(58)
+        					.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
         						.addGroup(groupLayout.createSequentialGroup()
-        							.addComponent(nbPerdu)
-        							.addGap(62))
+        							.addComponent(columnOne)
+        							.addGap(51)
+        							.addGroup(groupLayout.createParallelGroup(Alignment.BASELINE)
+        								.addComponent(interOne, GroupLayout.PREFERRED_SIZE, 46, GroupLayout.PREFERRED_SIZE)
+        								.addComponent(interTwo, GroupLayout.DEFAULT_SIZE, 46, Short.MAX_VALUE)
+        								.addComponent(interThree))
+        							.addGap(36))
         						.addGroup(groupLayout.createSequentialGroup()
-        							.addComponent(nbGagnee, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        							.addGap(38)))))
-        			.addGap(76))
+        							.addGroup(groupLayout.createParallelGroup(Alignment.BASELINE)
+        								.addComponent(j1)
+        								.addComponent(j4)
+        								.addComponent(j10)
+        								.addComponent(j7)
+        								.addComponent(j13)
+        								.addComponent(j16)
+        								.addComponent(j19)
+        								.addComponent(j22)
+        								.addComponent(j25)
+        								.addComponent(j31)
+        								.addComponent(j28)
+        								.addComponent(j34))
+        							.addPreferredGap(ComponentPlacement.RELATED)))
+        					.addGroup(groupLayout.createParallelGroup(Alignment.BASELINE)
+        						.addComponent(firstDiv2)
+        						.addComponent(even)
+        						.addComponent(red)
+        						.addComponent(secondDiv2)
+        						.addComponent(odd)
+        						.addComponent(black))
+        					.addGap(73)
+        					.addComponent(errorMsg)
+        					.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
+        						.addGroup(groupLayout.createSequentialGroup()
+        							.addGap(38)
+        							.addGroup(groupLayout.createParallelGroup(Alignment.TRAILING, false)
+        								.addComponent(gameLost, Alignment.LEADING, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        								.addComponent(gameWon, Alignment.LEADING, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        							.addPreferredGap(ComponentPlacement.UNRELATED)
+        							.addGroup(groupLayout.createParallelGroup(Alignment.TRAILING, false)
+        								.addGroup(groupLayout.createSequentialGroup()
+        									.addComponent(nbFailed)
+        									.addGap(62))
+        								.addGroup(groupLayout.createSequentialGroup()
+        									.addComponent(nbWon, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        									.addGap(38))))
+        						.addGroup(Alignment.TRAILING, groupLayout.createSequentialGroup()
+        							.addGap(44)
+        							.addGroup(groupLayout.createParallelGroup(Alignment.TRAILING)
+        								.addComponent(betTwo, Alignment.LEADING, GroupLayout.DEFAULT_SIZE, 48, Short.MAX_VALUE)
+        								.addComponent(betFour, Alignment.LEADING, GroupLayout.DEFAULT_SIZE, 48, Short.MAX_VALUE)
+        								.addComponent(betThree, Alignment.LEADING, GroupLayout.DEFAULT_SIZE, 48, Short.MAX_VALUE)
+        								.addComponent(betOne, Alignment.LEADING, GroupLayout.DEFAULT_SIZE, 48, Short.MAX_VALUE)
+        								.addGroup(groupLayout.createParallelGroup(Alignment.BASELINE)
+        									.addComponent(spin, GroupLayout.PREFERRED_SIZE, 47, GroupLayout.PREFERRED_SIZE)
+        									.addComponent(reset))
+        								.addComponent(betFive, Alignment.LEADING, GroupLayout.DEFAULT_SIZE, 48, Short.MAX_VALUE))
+        							.addGap(59)))
+        					.addGap(76))))
         );
         setLayout(groupLayout);
     }
-    
+    /**
+     * Set the background JFrame
+     */
     public void paintComponent(Graphics g) {
         g.drawImage(img, 0, 0, null);
     }
+    
     public void actionPerformed(ActionEvent e) {
 		switch(e.getActionCommand()){
 		case "SPIN":
-			if(groupDeux.getSelection() == null) {
-				lblMessageDerreur.setText("Veuillez selectionner un montant à parier");
-			} else if(groupUn.getSelection() == null) {
-				lblMessageDerreur.setText("Veuillez selectionner une case sur laquelle parier");
-			} else if(Integer.parseInt(groupDeux.getSelection().getActionCommand()) > ModelParis.getTotal()) {
-				lblMessageDerreur.setText("Vous n'avez plus assez pour miser autant !");
-			} else if(ModelParis.getTotal() == 0) {
-				lblMessageDerreur.setText("Vous n'avez plus de crédit, cliquez sur RESET pour rejouer");
+			if(groupTwo.getSelection() == null) {
+				errorMsg.setText("Please choose a bet amount");
+			} else if(groupOne.getSelection() == null) {
+				errorMsg.setText("Please choose a case");
+			} else {
+			sound = new model.Sound();
+			sound.sound();
+			if(ModelParis.getTotal() == 0) {
+			errorMsg.setText("You have 0€. Click reset to play again !");
+			} else if(Integer.parseInt(groupTwo.getSelection().getActionCommand()) > ModelParis.getTotal()) {
+				errorMsg.setText("You want to bet " + groupTwo.getSelection().getActionCommand() + "€ and you have only " + ModelParis.getTotal() + "€");
 			} else if(red.isSelected()) {
-				setNumParis(Integer.parseInt(groupUn.getSelection().getActionCommand()));
-				ModelParis model = new ModelParis(getNumParis(), Integer.parseInt(groupDeux.getSelection().getActionCommand()));
+				setNumParis(Integer.parseInt(groupOne.getSelection().getActionCommand()));
+				ModelParis model = new ModelParis(getNumBet(), Integer.parseInt(groupTwo.getSelection().getActionCommand()));
 			} else if(black.isSelected()) {
-				setNumParis(Integer.parseInt(groupUn.getSelection().getActionCommand()));
-				ModelParis model = new ModelParis(getNumParis(),  Integer.parseInt(groupDeux.getSelection().getActionCommand()));
+				setNumParis(Integer.parseInt(groupOne.getSelection().getActionCommand()));
+				ModelParis model = new ModelParis(getNumBet(),  Integer.parseInt(groupTwo.getSelection().getActionCommand()));
 				
 			} else if(even.isSelected()) {
-				setNumParis(Integer.parseInt(groupUn.getSelection().getActionCommand()));
-				ModelParis model = new ModelParis(getNumParis(),  Integer.parseInt(groupDeux.getSelection().getActionCommand()));
+				setNumParis(Integer.parseInt(groupOne.getSelection().getActionCommand()));
+				ModelParis model = new ModelParis(getNumBet(),  Integer.parseInt(groupTwo.getSelection().getActionCommand()));
 				
 			} else if(odd.isSelected()) {
-				setNumParis(Integer.parseInt(groupUn.getSelection().getActionCommand()));
-				ModelParis model = new ModelParis(getNumParis(),  Integer.parseInt(groupDeux.getSelection().getActionCommand()));
+				setNumParis(Integer.parseInt(groupOne.getSelection().getActionCommand()));
+				ModelParis model = new ModelParis(getNumBet(),  Integer.parseInt(groupTwo.getSelection().getActionCommand()));
 				
 			} else if(firstDiv2.isSelected()){
-				setNumParis(Integer.parseInt(groupUn.getSelection().getActionCommand()));
-				ModelParis model = new ModelParis(getNumParis(),  Integer.parseInt(groupDeux.getSelection().getActionCommand()));
+				setNumParis(Integer.parseInt(groupOne.getSelection().getActionCommand()));
+				ModelParis model = new ModelParis(getNumBet(),  Integer.parseInt(groupTwo.getSelection().getActionCommand()));
 				
 			} else if(secondDiv2.isSelected()){
-				setNumParis(Integer.parseInt(groupUn.getSelection().getActionCommand()));
-				ModelParis model = new ModelParis(getNumParis(),  Integer.parseInt(groupDeux.getSelection().getActionCommand()));
+				setNumParis(Integer.parseInt(groupOne.getSelection().getActionCommand()));
+				ModelParis model = new ModelParis(getNumBet(),  Integer.parseInt(groupTwo.getSelection().getActionCommand()));
 				
 			} else if(interOne.isSelected()){
-				setNumParis(Integer.parseInt(groupUn.getSelection().getActionCommand()));
-				ModelParis model = new ModelParis(getNumParis(),  Integer.parseInt(groupDeux.getSelection().getActionCommand()));
+				setNumParis(Integer.parseInt(groupOne.getSelection().getActionCommand()));
+				ModelParis model = new ModelParis(getNumBet(),  Integer.parseInt(groupTwo.getSelection().getActionCommand()));
 				
 			} else if(interTwo.isSelected()){
-				setNumParis(Integer.parseInt(groupUn.getSelection().getActionCommand()));
-				ModelParis model = new ModelParis(getNumParis(),  Integer.parseInt(groupDeux.getSelection().getActionCommand()));
+				setNumParis(Integer.parseInt(groupOne.getSelection().getActionCommand()));
+				ModelParis model = new ModelParis(getNumBet(),  Integer.parseInt(groupTwo.getSelection().getActionCommand()));
 				
 			} else if(interThree.isSelected()){
-				setNumParis(Integer.parseInt(groupUn.getSelection().getActionCommand()));
-				ModelParis model = new ModelParis(getNumParis(),  Integer.parseInt(groupDeux.getSelection().getActionCommand()));
+				setNumParis(Integer.parseInt(groupOne.getSelection().getActionCommand()));
+				ModelParis model = new ModelParis(getNumBet(),  Integer.parseInt(groupTwo.getSelection().getActionCommand()));
 				
 			} else if(columnOne.isSelected()){
-				setNumParis(Integer.parseInt(groupUn.getSelection().getActionCommand()));
-				ModelParis model = new ModelParis(getNumParis(),  Integer.parseInt(groupDeux.getSelection().getActionCommand()));
+				setNumParis(Integer.parseInt(groupOne.getSelection().getActionCommand()));
+				ModelParis model = new ModelParis(getNumBet(),  Integer.parseInt(groupTwo.getSelection().getActionCommand()));
 				
 			} else if(columnTwo.isSelected()){
-				setNumParis(Integer.parseInt(groupUn.getSelection().getActionCommand()));
-				ModelParis model = new ModelParis(getNumParis(),  Integer.parseInt(groupDeux.getSelection().getActionCommand()));
+				setNumParis(Integer.parseInt(groupOne.getSelection().getActionCommand()));
+				ModelParis model = new ModelParis(getNumBet(),  Integer.parseInt(groupTwo.getSelection().getActionCommand()));
 				
 			} else if(columnThree.isSelected()){
-				setNumParis(Integer.parseInt(groupUn.getSelection().getActionCommand()));
-				ModelParis model = new ModelParis(getNumParis(),  Integer.parseInt(groupDeux.getSelection().getActionCommand()));
+				setNumParis(Integer.parseInt(groupOne.getSelection().getActionCommand()));
+				ModelParis model = new ModelParis(getNumBet(),  Integer.parseInt(groupTwo.getSelection().getActionCommand()));
 				
 			} else if(j0.isSelected()){
-				setNumParis(Integer.parseInt(groupUn.getSelection().getActionCommand()));
-				ModelParis model = new ModelParis(getNumParis(),  Integer.parseInt(groupDeux.getSelection().getActionCommand()));
+				setNumParis(Integer.parseInt(groupOne.getSelection().getActionCommand()));
+				ModelParis model = new ModelParis(getNumBet(),  Integer.parseInt(groupTwo.getSelection().getActionCommand()));
 				
 			} else if(j1.isSelected()){
-				setNumParis(Integer.parseInt(groupUn.getSelection().getActionCommand()));
-				ModelParis model = new ModelParis(getNumParis(),  Integer.parseInt(groupDeux.getSelection().getActionCommand()));
+				setNumParis(Integer.parseInt(groupOne.getSelection().getActionCommand()));
+				ModelParis model = new ModelParis(getNumBet(),  Integer.parseInt(groupTwo.getSelection().getActionCommand()));
 				
 			} else if(j2.isSelected()){
-				setNumParis(Integer.parseInt(groupUn.getSelection().getActionCommand()));
-				ModelParis model = new ModelParis(getNumParis(),  Integer.parseInt(groupDeux.getSelection().getActionCommand()));
+				setNumParis(Integer.parseInt(groupOne.getSelection().getActionCommand()));
+				ModelParis model = new ModelParis(getNumBet(),  Integer.parseInt(groupTwo.getSelection().getActionCommand()));
 				
 			} else if(j3.isSelected()){
-				setNumParis(Integer.parseInt(groupUn.getSelection().getActionCommand()));
-				ModelParis model = new ModelParis(getNumParis(),  Integer.parseInt(groupDeux.getSelection().getActionCommand()));
+				setNumParis(Integer.parseInt(groupOne.getSelection().getActionCommand()));
+				ModelParis model = new ModelParis(getNumBet(),  Integer.parseInt(groupTwo.getSelection().getActionCommand()));
 				
 			} else if(j4.isSelected()){
-				setNumParis(Integer.parseInt(groupUn.getSelection().getActionCommand()));
-				ModelParis model = new ModelParis(getNumParis(),  Integer.parseInt(groupDeux.getSelection().getActionCommand()));
+				setNumParis(Integer.parseInt(groupOne.getSelection().getActionCommand()));
+				ModelParis model = new ModelParis(getNumBet(),  Integer.parseInt(groupTwo.getSelection().getActionCommand()));
 				
 			} else if(j5.isSelected()){
-				setNumParis(Integer.parseInt(groupUn.getSelection().getActionCommand()));
-				ModelParis model = new ModelParis(getNumParis(),  Integer.parseInt(groupDeux.getSelection().getActionCommand()));
+				setNumParis(Integer.parseInt(groupOne.getSelection().getActionCommand()));
+				ModelParis model = new ModelParis(getNumBet(),  Integer.parseInt(groupTwo.getSelection().getActionCommand()));
 				
 			} else if(j6.isSelected()){
-				setNumParis(Integer.parseInt(groupUn.getSelection().getActionCommand()));
-				ModelParis model = new ModelParis(getNumParis(),  Integer.parseInt(groupDeux.getSelection().getActionCommand()));
+				setNumParis(Integer.parseInt(groupOne.getSelection().getActionCommand()));
+				ModelParis model = new ModelParis(getNumBet(),  Integer.parseInt(groupTwo.getSelection().getActionCommand()));
 				
 			} else if(j7.isSelected()){
-				setNumParis(Integer.parseInt(groupUn.getSelection().getActionCommand()));
-				ModelParis model = new ModelParis(getNumParis(),  Integer.parseInt(groupDeux.getSelection().getActionCommand()));
+				setNumParis(Integer.parseInt(groupOne.getSelection().getActionCommand()));
+				ModelParis model = new ModelParis(getNumBet(),  Integer.parseInt(groupTwo.getSelection().getActionCommand()));
 				
 			} else if(j8.isSelected()){
-				setNumParis(Integer.parseInt(groupUn.getSelection().getActionCommand()));
-				ModelParis model = new ModelParis(getNumParis(),  Integer.parseInt(groupDeux.getSelection().getActionCommand()));
+				setNumParis(Integer.parseInt(groupOne.getSelection().getActionCommand()));
+				ModelParis model = new ModelParis(getNumBet(),  Integer.parseInt(groupTwo.getSelection().getActionCommand()));
 				
 			} else if(j9.isSelected()){
-				setNumParis(Integer.parseInt(groupUn.getSelection().getActionCommand()));
-				ModelParis model = new ModelParis(getNumParis(),  Integer.parseInt(groupDeux.getSelection().getActionCommand()));
+				setNumParis(Integer.parseInt(groupOne.getSelection().getActionCommand()));
+				ModelParis model = new ModelParis(getNumBet(),  Integer.parseInt(groupTwo.getSelection().getActionCommand()));
 				
 			} else if(j10.isSelected()){
-				setNumParis(Integer.parseInt(groupUn.getSelection().getActionCommand()));
-				ModelParis model = new ModelParis(getNumParis(),  Integer.parseInt(groupDeux.getSelection().getActionCommand()));
+				setNumParis(Integer.parseInt(groupOne.getSelection().getActionCommand()));
+				ModelParis model = new ModelParis(getNumBet(),  Integer.parseInt(groupTwo.getSelection().getActionCommand()));
 				
 			} else if(j11.isSelected()){
-				setNumParis(Integer.parseInt(groupUn.getSelection().getActionCommand()));
-				ModelParis model = new ModelParis(getNumParis(),  Integer.parseInt(groupDeux.getSelection().getActionCommand()));
+				setNumParis(Integer.parseInt(groupOne.getSelection().getActionCommand()));
+				ModelParis model = new ModelParis(getNumBet(),  Integer.parseInt(groupTwo.getSelection().getActionCommand()));
 				
 			} else if(j12.isSelected()){
-				setNumParis(Integer.parseInt(groupUn.getSelection().getActionCommand()));
-				ModelParis model = new ModelParis(getNumParis(),  Integer.parseInt(groupDeux.getSelection().getActionCommand()));
+				setNumParis(Integer.parseInt(groupOne.getSelection().getActionCommand()));
+				ModelParis model = new ModelParis(getNumBet(),  Integer.parseInt(groupTwo.getSelection().getActionCommand()));
 				
 			} else if(j13.isSelected()){
-				setNumParis(Integer.parseInt(groupUn.getSelection().getActionCommand()));
-				ModelParis model = new ModelParis(getNumParis(),  Integer.parseInt(groupDeux.getSelection().getActionCommand()));
+				setNumParis(Integer.parseInt(groupOne.getSelection().getActionCommand()));
+				ModelParis model = new ModelParis(getNumBet(),  Integer.parseInt(groupTwo.getSelection().getActionCommand()));
 				
 			} else if(j14.isSelected()){
-				setNumParis(Integer.parseInt(groupUn.getSelection().getActionCommand()));
-				ModelParis model = new ModelParis(getNumParis(),  Integer.parseInt(groupDeux.getSelection().getActionCommand()));
+				setNumParis(Integer.parseInt(groupOne.getSelection().getActionCommand()));
+				ModelParis model = new ModelParis(getNumBet(),  Integer.parseInt(groupTwo.getSelection().getActionCommand()));
 				
 			} else if(j15.isSelected()){
-				setNumParis(Integer.parseInt(groupUn.getSelection().getActionCommand()));
-				ModelParis model = new ModelParis(getNumParis(),  Integer.parseInt(groupDeux.getSelection().getActionCommand()));
+				setNumParis(Integer.parseInt(groupOne.getSelection().getActionCommand()));
+				ModelParis model = new ModelParis(getNumBet(),  Integer.parseInt(groupTwo.getSelection().getActionCommand()));
 				
 			} else if(j16.isSelected()){
-				setNumParis(Integer.parseInt(groupUn.getSelection().getActionCommand()));
-				ModelParis model = new ModelParis(getNumParis(),  Integer.parseInt(groupDeux.getSelection().getActionCommand()));
+				setNumParis(Integer.parseInt(groupOne.getSelection().getActionCommand()));
+				ModelParis model = new ModelParis(getNumBet(),  Integer.parseInt(groupTwo.getSelection().getActionCommand()));
 				
 			} else if(j17.isSelected()){
-				setNumParis(Integer.parseInt(groupUn.getSelection().getActionCommand()));
-				ModelParis model = new ModelParis(getNumParis(),  Integer.parseInt(groupDeux.getSelection().getActionCommand()));
+				setNumParis(Integer.parseInt(groupOne.getSelection().getActionCommand()));
+				ModelParis model = new ModelParis(getNumBet(),  Integer.parseInt(groupTwo.getSelection().getActionCommand()));
 				
 			} else if(j18.isSelected()){
-				setNumParis(Integer.parseInt(groupUn.getSelection().getActionCommand()));
-				ModelParis model = new ModelParis(getNumParis(),  Integer.parseInt(groupDeux.getSelection().getActionCommand()));
+				setNumParis(Integer.parseInt(groupOne.getSelection().getActionCommand()));
+				ModelParis model = new ModelParis(getNumBet(),  Integer.parseInt(groupTwo.getSelection().getActionCommand()));
 				
 			} else if(j19.isSelected()){
-				setNumParis(Integer.parseInt(groupUn.getSelection().getActionCommand()));
-				ModelParis model = new ModelParis(getNumParis(),  Integer.parseInt(groupDeux.getSelection().getActionCommand()));
+				setNumParis(Integer.parseInt(groupOne.getSelection().getActionCommand()));
+				ModelParis model = new ModelParis(getNumBet(),  Integer.parseInt(groupTwo.getSelection().getActionCommand()));
 				
 			} else if(j20.isSelected()){
-				setNumParis(Integer.parseInt(groupUn.getSelection().getActionCommand()));
-				ModelParis model = new ModelParis(getNumParis(),  Integer.parseInt(groupDeux.getSelection().getActionCommand()));
+				setNumParis(Integer.parseInt(groupOne.getSelection().getActionCommand()));
+				ModelParis model = new ModelParis(getNumBet(),  Integer.parseInt(groupTwo.getSelection().getActionCommand()));
 				
 			} else if(j21.isSelected()){
-				setNumParis(Integer.parseInt(groupUn.getSelection().getActionCommand()));
-				ModelParis model = new ModelParis(getNumParis(),  Integer.parseInt(groupDeux.getSelection().getActionCommand()));
+				setNumParis(Integer.parseInt(groupOne.getSelection().getActionCommand()));
+				ModelParis model = new ModelParis(getNumBet(),  Integer.parseInt(groupTwo.getSelection().getActionCommand()));
 				
 			} else if(j22.isSelected()){
-				setNumParis(Integer.parseInt(groupUn.getSelection().getActionCommand()));
-				ModelParis model = new ModelParis(getNumParis(),  Integer.parseInt(groupDeux.getSelection().getActionCommand()));
+				setNumParis(Integer.parseInt(groupOne.getSelection().getActionCommand()));
+				ModelParis model = new ModelParis(getNumBet(),  Integer.parseInt(groupTwo.getSelection().getActionCommand()));
 				
 			} else if(j23.isSelected()){
-				setNumParis(Integer.parseInt(groupUn.getSelection().getActionCommand()));
-				ModelParis model = new ModelParis(getNumParis(),  Integer.parseInt(groupDeux.getSelection().getActionCommand()));
+				setNumParis(Integer.parseInt(groupOne.getSelection().getActionCommand()));
+				ModelParis model = new ModelParis(getNumBet(),  Integer.parseInt(groupTwo.getSelection().getActionCommand()));
 				
 			} else if(j24.isSelected()){
-				setNumParis(Integer.parseInt(groupUn.getSelection().getActionCommand()));
-				ModelParis model = new ModelParis(getNumParis(),  Integer.parseInt(groupDeux.getSelection().getActionCommand()));
+				setNumParis(Integer.parseInt(groupOne.getSelection().getActionCommand()));
+				ModelParis model = new ModelParis(getNumBet(),  Integer.parseInt(groupTwo.getSelection().getActionCommand()));
 				
 			} else if(j25.isSelected()){
-				setNumParis(Integer.parseInt(groupUn.getSelection().getActionCommand()));
-				ModelParis model = new ModelParis(getNumParis(),  Integer.parseInt(groupDeux.getSelection().getActionCommand()));
+				setNumParis(Integer.parseInt(groupOne.getSelection().getActionCommand()));
+				ModelParis model = new ModelParis(getNumBet(),  Integer.parseInt(groupTwo.getSelection().getActionCommand()));
 				
 			} else if(j26.isSelected()){
-				setNumParis(Integer.parseInt(groupUn.getSelection().getActionCommand()));
-				ModelParis model = new ModelParis(getNumParis(),  Integer.parseInt(groupDeux.getSelection().getActionCommand()));
+				setNumParis(Integer.parseInt(groupOne.getSelection().getActionCommand()));
+				ModelParis model = new ModelParis(getNumBet(),  Integer.parseInt(groupTwo.getSelection().getActionCommand()));
 				
 			} else if(j27.isSelected()){
-				setNumParis(Integer.parseInt(groupUn.getSelection().getActionCommand()));
-				ModelParis model = new ModelParis(getNumParis(),  Integer.parseInt(groupDeux.getSelection().getActionCommand()));
+				setNumParis(Integer.parseInt(groupOne.getSelection().getActionCommand()));
+				ModelParis model = new ModelParis(getNumBet(),  Integer.parseInt(groupTwo.getSelection().getActionCommand()));
 				
 			} else if(j28.isSelected()){
-				setNumParis(Integer.parseInt(groupUn.getSelection().getActionCommand()));
-				ModelParis model = new ModelParis(getNumParis(),  Integer.parseInt(groupDeux.getSelection().getActionCommand()));
+				setNumParis(Integer.parseInt(groupOne.getSelection().getActionCommand()));
+				ModelParis model = new ModelParis(getNumBet(),  Integer.parseInt(groupTwo.getSelection().getActionCommand()));
 				
 			} else if(j29.isSelected()){
-				setNumParis(Integer.parseInt(groupUn.getSelection().getActionCommand()));
-				ModelParis model = new ModelParis(getNumParis(),  Integer.parseInt(groupDeux.getSelection().getActionCommand()));
+				setNumParis(Integer.parseInt(groupOne.getSelection().getActionCommand()));
+				ModelParis model = new ModelParis(getNumBet(),  Integer.parseInt(groupTwo.getSelection().getActionCommand()));
 				
 			} else if(j30.isSelected()){
-				setNumParis(Integer.parseInt(groupUn.getSelection().getActionCommand()));
-				ModelParis model = new ModelParis(getNumParis(),  Integer.parseInt(groupDeux.getSelection().getActionCommand()));
+				setNumParis(Integer.parseInt(groupOne.getSelection().getActionCommand()));
+				ModelParis model = new ModelParis(getNumBet(),  Integer.parseInt(groupTwo.getSelection().getActionCommand()));
 				
 			} else if(j31.isSelected()){
-				setNumParis(Integer.parseInt(groupUn.getSelection().getActionCommand()));
-				ModelParis model = new ModelParis(getNumParis(),  Integer.parseInt(groupDeux.getSelection().getActionCommand()));
+				setNumParis(Integer.parseInt(groupOne.getSelection().getActionCommand()));
+				ModelParis model = new ModelParis(getNumBet(),  Integer.parseInt(groupTwo.getSelection().getActionCommand()));
 				
 			} else if(j32.isSelected()){
-				setNumParis(Integer.parseInt(groupUn.getSelection().getActionCommand()));
-				ModelParis model = new ModelParis(getNumParis(),  Integer.parseInt(groupDeux.getSelection().getActionCommand()));
+				setNumParis(Integer.parseInt(groupOne.getSelection().getActionCommand()));
+				ModelParis model = new ModelParis(getNumBet(),  Integer.parseInt(groupTwo.getSelection().getActionCommand()));
 				
 			} else if(j33.isSelected()){
-				setNumParis(Integer.parseInt(groupUn.getSelection().getActionCommand()));
-				ModelParis model = new ModelParis(getNumParis(),  Integer.parseInt(groupDeux.getSelection().getActionCommand()));
+				setNumParis(Integer.parseInt(groupOne.getSelection().getActionCommand()));
+				ModelParis model = new ModelParis(getNumBet(),  Integer.parseInt(groupTwo.getSelection().getActionCommand()));
 				
 			} else if(j34.isSelected()){
-				setNumParis(Integer.parseInt(groupUn.getSelection().getActionCommand()));
-				ModelParis model = new ModelParis(getNumParis(),  Integer.parseInt(groupDeux.getSelection().getActionCommand()));
+				setNumParis(Integer.parseInt(groupOne.getSelection().getActionCommand()));
+				ModelParis model = new ModelParis(getNumBet(),  Integer.parseInt(groupTwo.getSelection().getActionCommand()));
 				
 			} else if(j35.isSelected()){
-				setNumParis(Integer.parseInt(groupUn.getSelection().getActionCommand()));
-				ModelParis model = new ModelParis(getNumParis(),  Integer.parseInt(groupDeux.getSelection().getActionCommand()));
+				setNumParis(Integer.parseInt(groupOne.getSelection().getActionCommand()));
+				ModelParis model = new ModelParis(getNumBet(),  Integer.parseInt(groupTwo.getSelection().getActionCommand()));
 				
 			} else if(j36.isSelected()){
-				setNumParis(Integer.parseInt(groupUn.getSelection().getActionCommand()));
-				ModelParis model = new ModelParis(getNumParis(),  Integer.parseInt(groupDeux.getSelection().getActionCommand()));
-				
-			} 	
+				setNumParis(Integer.parseInt(groupOne.getSelection().getActionCommand()));
+				ModelParis model = new ModelParis(getNumBet(),  Integer.parseInt(groupTwo.getSelection().getActionCommand()));
+			}	
+		} 	
 			break;
 			
 			case "RESET" :
@@ -1093,38 +1108,25 @@ public class ViewParisGUI extends JPanel implements ActionListener{
 				ModelParis.totalLost = 0;
 				ModelParis.totalWon = 0;
 				ModelParis.totalWL = 0;
-				paris.setText(Double.toString(ModelParis.total) + " €");
-				lblMessageDerreur.setText("Jeu remis à zero");
+				bet.setText(Double.toString(ModelParis.total) + " €");
+				errorMsg.setText("Game reset !");
+				totalWon.setText(Double.toString(ModelParis.totalWon));
 				totalLost.setText(Double.toString(ModelParis.totalLost));
 				totalWL.setText(Double.toString(ModelParis.totalWL));
-				nbPerdu.setText(Integer.toString(ModelParis.nbLost));
-				nbGagnee.setText(Integer.toString(ModelParis.nbWon));
+				nbFailed.setText(Integer.toString(ModelParis.nbLost));
+				nbWon.setText(Integer.toString(ModelParis.nbWon));
+				break;
+			case "QUIT" :
+				
 		}
 	}
 
-
-
-	public static int getNumParis() {
-		return numParis;
+	public static int getNumBet() {
+		return numBet;
 	}
 
 	public static void setNumParis(int numParis) {
-		ViewParisGUI.numParis = numParis;
+		ViewParisGUI.numBet = numParis;
 	}
 
-	public static JLabel getNbGagnee() {
-		return nbGagnee;
-	}
-
-	public static void setNbGagnee(JLabel nbGagnee) {
-		ViewParisGUI.nbGagnee = nbGagnee;
-	}
-
-	public static JLabel getNbPerdu() {
-		return nbPerdu;
-	}
-
-	public static void setNbPerdu(JLabel nbPerdu) {
-		ViewParisGUI.nbPerdu = nbPerdu;
-	}
 }

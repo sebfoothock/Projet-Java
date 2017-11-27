@@ -6,14 +6,7 @@ import java.util.Scanner;
  * This class is the costructor to create one case of the play mat cases 
  */
 public class Case {
-	/**
-	 * The constructor of the differents caracteristics of a case 
-	 * @param num the number of the case
-	 * @param parity the parity (odd or even)
-	 * @param color the color (red or black)
-	 * @param intervals the interval where the case is 
-	 * @param column the columns where the case is  
-	 */
+	
 	private int num;
 	private String parity;
 	private String color;

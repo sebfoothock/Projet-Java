@@ -1,9 +1,7 @@
 package model;
-import java.util.Observable;
 import java.util.Random;
 
 import model.Case;
-import view.ViewParis;
 import view.ViewParisGUI;
 import view.ViewParisFenetre;
 /**
@@ -14,29 +12,18 @@ import view.ViewParisFenetre;
  * 
  * This class is the main bet model.
  */
-public class ModelParis extends Observable{
+public class ModelParis{
 	public static double total = 2500;
 	static double winAmount;
 	static int numP = Player.getNumP();
 	static double amountP = Player.getAmount();
-	static Player pUn = new Player(numP, amountP);
+	static Player pOne = new Player(numP, amountP);
 	static int numR = getNumRandom();
 	public static double totalWon;
 	public static double totalLost;
 	public static double totalWL;
 	public static int nbWon;
 	public static int nbLost;
-	/**
-	public static void main(String[] args) {
-		System.out.println(total);
-		typeParis();
-		System.out.println(total);
-	}
-	
-	public static void main(String[] args) {
-		ModelParis model = new ModelParis(37, 50);
-		ModelParis.typeParis();
-	}
 	/**
 	 * this method return ModelParis with the number bet and the amount bet as attribute
 	 * @param caseP
@@ -45,8 +32,8 @@ public class ModelParis extends Observable{
 	public ModelParis(int caseP, double amountP){
 		Player.setNumP(caseP);
 		Player.setAmount(amountP);
-		Player pUn;
-		typeParis();
+		Player pOne;
+		typeBet();
 	}
 	
 	/**
@@ -54,108 +41,108 @@ public class ModelParis extends Observable{
 	 * It subtracts the amount from the total.
 	 * Return if the player win or loose his bet.
 	 */
-	public static void typeParis(){
+	public static void typeBet(){
 		setNumR(getNumRandom());
 		//si entre 1 & 36
-		if(pUn.getNumP() >= 0 && pUn.getNumP() <=36){
-			if(pUn.getNumP() == numR){
-				gagne(36);
+		if(pOne.getNumP() >= 0 && pOne.getNumP() <=36){
+			if(pOne.getNumP() == numR){
+				win(36);
 			} else {
-				perd();
+				lost();
 			}
 		}
 		
 		//si rouge ou noir
-		if(pUn.getNumP() == 37){
-			if(((Case) getArrayCase(pUn.getNumP())).getColor() == ((Case) getArrayCase(getNumR())).getColor()){
-				gagne(2);
+		if(pOne.getNumP() == 37){
+			if(((Case) getArrayCase(pOne.getNumP())).getColor() == ((Case) getArrayCase(getNumR())).getColor()){
+				win(2);
 			} else {
-				perd();
+				lost();
 			}
 		}
-		if(pUn.getNumP() == 38){
-			if(((Case) getArrayCase(pUn.getNumP())).getColor() == ((Case) getArrayCase(getNumR())).getColor()){
-				gagne(2);
+		if(pOne.getNumP() == 38){
+			if(((Case) getArrayCase(pOne.getNumP())).getColor() == ((Case) getArrayCase(getNumR())).getColor()){
+				win(2);
 			} else {
-				perd();
+				lost();
 			}
 		}
 			
 		//si on parie sur pair impair
-		if(pUn.getNumP() == 39){
-			if(((Case) getArrayCase(pUn.getNumP())).getParity() == ((Case) getArrayCase(getNumR())).getParity()){
-				gagne(2);
+		if(pOne.getNumP() == 39){
+			if(((Case) getArrayCase(pOne.getNumP())).getParity() == ((Case) getArrayCase(getNumR())).getParity()){
+				win(2);
 			} else {
-				perd();
+				lost();
 			}
 		}
-		if(pUn.getNumP() == 40){
-			if(((Case) getArrayCase(pUn.getNumP())).getParity() == ((Case) getArrayCase(getNumR())).getParity()){
-				gagne(2);
+		if(pOne.getNumP() == 40){
+			if(((Case) getArrayCase(pOne.getNumP())).getParity() == ((Case) getArrayCase(getNumR())).getParity()){
+				win(2);
 			} else {
-				perd();
+				lost();
 			}
 		}
 		
 		// pari sur intervals
-		if(pUn.getNumP() == 41){
-			if(((Case) getArrayCase(pUn.getNumP())).getIntervals() == ((Case) getArrayCase(getNumR())).getIntervals()){
-				gagne(3);
+		if(pOne.getNumP() == 41){
+			if(((Case) getArrayCase(pOne.getNumP())).getIntervals() == ((Case) getArrayCase(getNumR())).getIntervals()){
+				win(3);
 			} else {
-				perd();
+				lost();
 			}
 		}
-		if(pUn.getNumP() == 42){
-			if(((Case) getArrayCase(pUn.getNumP())).getIntervals() == ((Case) getArrayCase(getNumR())).getIntervals()){
-				gagne(3);
+		if(pOne.getNumP() == 42){
+			if(((Case) getArrayCase(pOne.getNumP())).getIntervals() == ((Case) getArrayCase(getNumR())).getIntervals()){
+				win(3);
 			} else {
-				perd();
+				lost();
 			}
 		}
-		if(pUn.getNumP() == 43){
-			if(((Case) getArrayCase(pUn.getNumP())).getIntervals() == ((Case) getArrayCase(getNumR())).getIntervals()){
-				gagne(3);
+		if(pOne.getNumP() == 43){
+			if(((Case) getArrayCase(pOne.getNumP())).getIntervals() == ((Case) getArrayCase(getNumR())).getIntervals()){
+				win(3);
 			} else {
-				perd();
+				lost();
 			}
 		}
 		
 		// pari sur colonne
-		if(pUn.getNumP() == 44){
-			if(((Case) getArrayCase(pUn.getNumP())).getColumn() == ((Case) getArrayCase(getNumR())).getColumn()){
-				gagne(3);
+		if(pOne.getNumP() == 44){
+			if(((Case) getArrayCase(pOne.getNumP())).getColumn() == ((Case) getArrayCase(getNumR())).getColumn()){
+				win(3);
 			} else {
-				perd();
+				lost();
 			}
 		}
-		if(pUn.getNumP() == 45){
-			if(((Case) getArrayCase(pUn.getNumP())).getColumn() == ((Case) getArrayCase(getNumR())).getColumn()){
-				gagne(3);
+		if(pOne.getNumP() == 45){
+			if(((Case) getArrayCase(pOne.getNumP())).getColumn() == ((Case) getArrayCase(getNumR())).getColumn()){
+				win(3);
 			} else {
-				perd();
+				lost();
 			}
 		}
-		if(pUn.getNumP() == 46){
-			if(((Case) getArrayCase(pUn.getNumP())).getColumn() == ((Case) getArrayCase(getNumR())).getColumn()){
-				gagne(3);
+		if(pOne.getNumP() == 46){
+			if(((Case) getArrayCase(pOne.getNumP())).getColumn() == ((Case) getArrayCase(getNumR())).getColumn()){
+				win(3);
 			} else {
-				perd();
+				lost();
 			}
 		}
 		
 		// 1-18 19-36
-		if(pUn.getNumP() == 47){
+		if(pOne.getNumP() == 47){
 			if(numR >= 1 && numR <= 18){
-				gagne(2);
+				win(2);
 			} else {
-				perd();
+				lost();
 			}
 		}
-		if(pUn.getNumP() == 48){
+		if(pOne.getNumP() == 48){
 			if(numR >= 19 && numR <= 36){
-				gagne(2);
+				win(2);
 			} else {
-				perd();
+				lost();
 			}
 		}
 	}
@@ -165,79 +152,44 @@ public class ModelParis extends Observable{
 	 * The method add the amount won in total.
 	 * @param ratio is the coefficient to know the the amount won.	
 	 */
-	public static void gagne(int ratio){
-		setTotal(getTotal() - pUn.getAmount());
-		winAmount = pUn.getAmount() * ratio;
+	public static void win(int ratio){
+		setTotal(getTotal() - pOne.getAmount());
+		winAmount = pOne.getAmount() * ratio;
 		setTotal(getTotal() + winAmount);
-		totalWon = totalWon + winAmount - pUn.getAmount();
+		totalWon = totalWon + winAmount - pOne.getAmount();
 		setTotalWL(totalWon - totalLost);
 		nbWon += 1;
 		setNbWon(getNbWon());
-		ViewParisGUI.paris.setText(Double.toString(getTotal()) + " €");
-		ViewParisGUI.lblMessageDerreur.setText("Gagné ! Le numéro sorti est le : " + ModelParis.getNumR());
+		ViewParisGUI.bet.setText(Double.toString(getTotal()) + " €");
+		ViewParisGUI.errorMsg.setText("You win ! The number is : " + ModelParis.getNumR());
 		ViewParisGUI.totalWon.setText(Double.toString(getTotalWon()));
 		ViewParisGUI.totalWL.setText(Double.toString(getTotalWL()));
-		ViewParisGUI.nbGagnee.setText(Integer.toString(getNbWon()));
+		ViewParisGUI.nbWon.setText(Integer.toString(getNbWon()));
 		
 	}
 	
 	/**
 	 * This method is return the player loose his bet.
 	 */
-	public static void perd(){
-		setTotal(getTotal() - pUn.getAmount());
-		totalLost = totalLost + pUn.getAmount();
+	public static void lost(){
+		setTotal(getTotal() - pOne.getAmount());
+		totalLost = totalLost + pOne.getAmount();
 		setTotalWL(totalWon - totalLost);
 		nbLost += 1;
 		setNbLost(getNbLost());
-		ViewParisGUI.paris.setText(Double.toString(getTotal()) + " €");
-		ViewParisGUI.lblMessageDerreur.setText("Perdu ! Le numéro sorti est le : " + ModelParis.getNumR());
+		ViewParisGUI.bet.setText(Double.toString(getTotal()) + " €");
+		ViewParisGUI.errorMsg.setText("you loose ! The number is : " + ModelParis.getNumR());
 		ViewParisGUI.totalLost.setText(Double.toString(getTotalLost()));
 		ViewParisGUI.totalWL.setText(Double.toString(getTotalWL()));
-		ViewParisGUI.nbPerdu.setText(Integer.toString(getNbLost()));
+		ViewParisGUI.nbFailed.setText(Integer.toString(getNbLost()));
+		
+		
 	}
 	
 	/**
 	 * Return the bet number from the player.
 	 */
-	public int getCase(){
-		return pUn.getNumP();
-	}
-	
-	/**
-	 * Change the bet number from the player.
-	 * @param numP
-	 */
-	public void setCase(int numP){
-		pUn.setNumP(numP);
-	}
-	
-	/**
-	 * @return a random number between 0 and 37
-	 */
-	public static int getNumRandom(){
-		Random randGen = new Random();
-		int numR;
-		numR = randGen.nextInt(37);
-		return numR;
-	}
-	
-	/**
-	 * 
-	 * @return the player
-	 */
-	public Player getpUn() {
-		return pUn;
-	}
-	
-	/**
-	 * Change player attributes
-	 * @param pUn
-	 */
-	public void setpUn(Player pUn) {
-		this.pUn = pUn;
-	}
-	
+
 	/**
 	 * This methods contains all play mat cases
 	 * @param numCase is the attributes to find the case in the array.
@@ -304,8 +256,45 @@ public class ModelParis extends Observable{
 		arrayCase[48] = new Case(48, null, null, -1, -1);
 		return arrayCase[numCase];
 	}
+	public int getCase(){
+		return pOne.getNumP();
+	}
 	
-
+	/**
+	 * Change the bet number from the player.
+	 * @param numP
+	 */
+	public void setCase(int numP){
+		pOne.setNumP(numP);
+	}
+	
+	/**
+	 * @return a random number between 0 and 37
+	 */
+	public static int getNumRandom(){
+		Random randGen = new Random();
+		int numR;
+		numR = randGen.nextInt(37);
+		return numR;
+	}
+	
+	/**
+	 * 
+	 * @return the player
+	 */
+	public Player getpOne() {
+		return pOne;
+	}
+	
+	/**
+	 * Change player attributes
+	 * @param pOne
+	 */
+	public void setpOne(Player pOne) {
+		this.pOne = pOne;
+	}
+	
+	
 	public static double getTotal() {
 		return total;
 	}
