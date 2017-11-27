@@ -43,6 +43,7 @@ public class ViewParisGUI extends JPanel implements ActionListener{
 	public static JLabel gameWon;
 	
 	static int numBet;
+	static int select;
 	
     JRadioButton j0;
     //
@@ -897,224 +898,151 @@ public class ViewParisGUI extends JPanel implements ActionListener{
 			} else if(groupOne.getSelection() == null) {
 				errorMsg.setText("Please choose a case");
 			} else {
-			sound = new model.Sound();
-			sound.sound();
+			//sound = new model.Sound();
+			//sound.sound();
 			if(ModelParis.getTotal() == 0) {
 			errorMsg.setText("You have 0€. Click reset to play again !");
 			} else if(Integer.parseInt(groupTwo.getSelection().getActionCommand()) > ModelParis.getTotal()) {
 				errorMsg.setText("You want to bet " + groupTwo.getSelection().getActionCommand() + "€ and you have only " + ModelParis.getTotal() + "€");
 			} else if(red.isSelected()) {
-				setNumParis(Integer.parseInt(groupOne.getSelection().getActionCommand()));
-				ModelParis model = new ModelParis(getNumBet(), Integer.parseInt(groupTwo.getSelection().getActionCommand()));
+				ControllerParis contr = new ControllerParis(Integer.parseInt(groupOne.getSelection().getActionCommand()), Integer.parseInt(groupTwo.getSelection().getActionCommand()));
 			} else if(black.isSelected()) {
-				setNumParis(Integer.parseInt(groupOne.getSelection().getActionCommand()));
-				ModelParis model = new ModelParis(getNumBet(),  Integer.parseInt(groupTwo.getSelection().getActionCommand()));
+				ControllerParis contr = new ControllerParis(Integer.parseInt(groupOne.getSelection().getActionCommand()), Integer.parseInt(groupTwo.getSelection().getActionCommand()));
 				
 			} else if(even.isSelected()) {
-				setNumParis(Integer.parseInt(groupOne.getSelection().getActionCommand()));
-				ModelParis model = new ModelParis(getNumBet(),  Integer.parseInt(groupTwo.getSelection().getActionCommand()));
+				ControllerParis contr = new ControllerParis(Integer.parseInt(groupOne.getSelection().getActionCommand()), Integer.parseInt(groupTwo.getSelection().getActionCommand()));
 				
 			} else if(odd.isSelected()) {
-				setNumParis(Integer.parseInt(groupOne.getSelection().getActionCommand()));
-				ModelParis model = new ModelParis(getNumBet(),  Integer.parseInt(groupTwo.getSelection().getActionCommand()));
+				ControllerParis contr = new ControllerParis(Integer.parseInt(groupOne.getSelection().getActionCommand()), Integer.parseInt(groupTwo.getSelection().getActionCommand()));
 				
 			} else if(firstDiv2.isSelected()){
-				setNumParis(Integer.parseInt(groupOne.getSelection().getActionCommand()));
-				ModelParis model = new ModelParis(getNumBet(),  Integer.parseInt(groupTwo.getSelection().getActionCommand()));
+				ControllerParis contr = new ControllerParis(Integer.parseInt(groupOne.getSelection().getActionCommand()), Integer.parseInt(groupTwo.getSelection().getActionCommand()));
 				
 			} else if(secondDiv2.isSelected()){
-				setNumParis(Integer.parseInt(groupOne.getSelection().getActionCommand()));
-				ModelParis model = new ModelParis(getNumBet(),  Integer.parseInt(groupTwo.getSelection().getActionCommand()));
+				ControllerParis contr = new ControllerParis(Integer.parseInt(groupOne.getSelection().getActionCommand()), Integer.parseInt(groupTwo.getSelection().getActionCommand()));
 				
 			} else if(interOne.isSelected()){
-				setNumParis(Integer.parseInt(groupOne.getSelection().getActionCommand()));
-				ModelParis model = new ModelParis(getNumBet(),  Integer.parseInt(groupTwo.getSelection().getActionCommand()));
+				ControllerParis contr = new ControllerParis(Integer.parseInt(groupOne.getSelection().getActionCommand()), Integer.parseInt(groupTwo.getSelection().getActionCommand()));
 				
 			} else if(interTwo.isSelected()){
-				setNumParis(Integer.parseInt(groupOne.getSelection().getActionCommand()));
-				ModelParis model = new ModelParis(getNumBet(),  Integer.parseInt(groupTwo.getSelection().getActionCommand()));
+				ControllerParis contr = new ControllerParis(Integer.parseInt(groupOne.getSelection().getActionCommand()), Integer.parseInt(groupTwo.getSelection().getActionCommand()));
 				
 			} else if(interThree.isSelected()){
-				setNumParis(Integer.parseInt(groupOne.getSelection().getActionCommand()));
-				ModelParis model = new ModelParis(getNumBet(),  Integer.parseInt(groupTwo.getSelection().getActionCommand()));
+				ControllerParis contr = new ControllerParis(Integer.parseInt(groupOne.getSelection().getActionCommand()), Integer.parseInt(groupTwo.getSelection().getActionCommand()));
 				
 			} else if(columnOne.isSelected()){
-				setNumParis(Integer.parseInt(groupOne.getSelection().getActionCommand()));
-				ModelParis model = new ModelParis(getNumBet(),  Integer.parseInt(groupTwo.getSelection().getActionCommand()));
+				ControllerParis contr = new ControllerParis(Integer.parseInt(groupOne.getSelection().getActionCommand()), Integer.parseInt(groupTwo.getSelection().getActionCommand()));
 				
 			} else if(columnTwo.isSelected()){
-				setNumParis(Integer.parseInt(groupOne.getSelection().getActionCommand()));
-				ModelParis model = new ModelParis(getNumBet(),  Integer.parseInt(groupTwo.getSelection().getActionCommand()));
+				ControllerParis contr = new ControllerParis(Integer.parseInt(groupOne.getSelection().getActionCommand()), Integer.parseInt(groupTwo.getSelection().getActionCommand()));
 				
 			} else if(columnThree.isSelected()){
-				setNumParis(Integer.parseInt(groupOne.getSelection().getActionCommand()));
-				ModelParis model = new ModelParis(getNumBet(),  Integer.parseInt(groupTwo.getSelection().getActionCommand()));
+				ControllerParis contr = new ControllerParis(Integer.parseInt(groupOne.getSelection().getActionCommand()), Integer.parseInt(groupTwo.getSelection().getActionCommand()));
 				
 			} else if(j0.isSelected()){
-				setNumParis(Integer.parseInt(groupOne.getSelection().getActionCommand()));
-				ModelParis model = new ModelParis(getNumBet(),  Integer.parseInt(groupTwo.getSelection().getActionCommand()));
+				ControllerParis contr = new ControllerParis(Integer.parseInt(groupOne.getSelection().getActionCommand()), Integer.parseInt(groupTwo.getSelection().getActionCommand()));
 				
 			} else if(j1.isSelected()){
-				setNumParis(Integer.parseInt(groupOne.getSelection().getActionCommand()));
-				ModelParis model = new ModelParis(getNumBet(),  Integer.parseInt(groupTwo.getSelection().getActionCommand()));
+				ControllerParis contr = new ControllerParis(Integer.parseInt(groupOne.getSelection().getActionCommand()), Integer.parseInt(groupTwo.getSelection().getActionCommand()));
 				
 			} else if(j2.isSelected()){
-				setNumParis(Integer.parseInt(groupOne.getSelection().getActionCommand()));
-				ModelParis model = new ModelParis(getNumBet(),  Integer.parseInt(groupTwo.getSelection().getActionCommand()));
+				ControllerParis contr = new ControllerParis(Integer.parseInt(groupOne.getSelection().getActionCommand()), Integer.parseInt(groupTwo.getSelection().getActionCommand()));
 				
 			} else if(j3.isSelected()){
-				setNumParis(Integer.parseInt(groupOne.getSelection().getActionCommand()));
-				ModelParis model = new ModelParis(getNumBet(),  Integer.parseInt(groupTwo.getSelection().getActionCommand()));
-				
+				ControllerParis contr = new ControllerParis(Integer.parseInt(groupOne.getSelection().getActionCommand()), Integer.parseInt(groupTwo.getSelection().getActionCommand()));
 			} else if(j4.isSelected()){
-				setNumParis(Integer.parseInt(groupOne.getSelection().getActionCommand()));
-				ModelParis model = new ModelParis(getNumBet(),  Integer.parseInt(groupTwo.getSelection().getActionCommand()));
+				ControllerParis contr = new ControllerParis(Integer.parseInt(groupOne.getSelection().getActionCommand()), Integer.parseInt(groupTwo.getSelection().getActionCommand()));
 				
 			} else if(j5.isSelected()){
-				setNumParis(Integer.parseInt(groupOne.getSelection().getActionCommand()));
-				ModelParis model = new ModelParis(getNumBet(),  Integer.parseInt(groupTwo.getSelection().getActionCommand()));
+				ControllerParis contr = new ControllerParis(Integer.parseInt(groupOne.getSelection().getActionCommand()), Integer.parseInt(groupTwo.getSelection().getActionCommand()));
 				
 			} else if(j6.isSelected()){
-				setNumParis(Integer.parseInt(groupOne.getSelection().getActionCommand()));
-				ModelParis model = new ModelParis(getNumBet(),  Integer.parseInt(groupTwo.getSelection().getActionCommand()));
+				ControllerParis contr = new ControllerParis(Integer.parseInt(groupOne.getSelection().getActionCommand()), Integer.parseInt(groupTwo.getSelection().getActionCommand()));
 				
 			} else if(j7.isSelected()){
-				setNumParis(Integer.parseInt(groupOne.getSelection().getActionCommand()));
-				ModelParis model = new ModelParis(getNumBet(),  Integer.parseInt(groupTwo.getSelection().getActionCommand()));
+				ControllerParis contr = new ControllerParis(Integer.parseInt(groupOne.getSelection().getActionCommand()), Integer.parseInt(groupTwo.getSelection().getActionCommand()));
 				
 			} else if(j8.isSelected()){
-				setNumParis(Integer.parseInt(groupOne.getSelection().getActionCommand()));
-				ModelParis model = new ModelParis(getNumBet(),  Integer.parseInt(groupTwo.getSelection().getActionCommand()));
+				ControllerParis contr = new ControllerParis(Integer.parseInt(groupOne.getSelection().getActionCommand()), Integer.parseInt(groupTwo.getSelection().getActionCommand()));
 				
 			} else if(j9.isSelected()){
-				setNumParis(Integer.parseInt(groupOne.getSelection().getActionCommand()));
-				ModelParis model = new ModelParis(getNumBet(),  Integer.parseInt(groupTwo.getSelection().getActionCommand()));
+				ControllerParis contr = new ControllerParis(Integer.parseInt(groupOne.getSelection().getActionCommand()), Integer.parseInt(groupTwo.getSelection().getActionCommand()));
 				
 			} else if(j10.isSelected()){
-				setNumParis(Integer.parseInt(groupOne.getSelection().getActionCommand()));
-				ModelParis model = new ModelParis(getNumBet(),  Integer.parseInt(groupTwo.getSelection().getActionCommand()));
+				ControllerParis contr = new ControllerParis(Integer.parseInt(groupOne.getSelection().getActionCommand()), Integer.parseInt(groupTwo.getSelection().getActionCommand()));
 				
 			} else if(j11.isSelected()){
-				setNumParis(Integer.parseInt(groupOne.getSelection().getActionCommand()));
-				ModelParis model = new ModelParis(getNumBet(),  Integer.parseInt(groupTwo.getSelection().getActionCommand()));
-				
+				ControllerParis contr = new ControllerParis(Integer.parseInt(groupOne.getSelection().getActionCommand()), Integer.parseInt(groupTwo.getSelection().getActionCommand()));
 			} else if(j12.isSelected()){
-				setNumParis(Integer.parseInt(groupOne.getSelection().getActionCommand()));
-				ModelParis model = new ModelParis(getNumBet(),  Integer.parseInt(groupTwo.getSelection().getActionCommand()));
+				ControllerParis contr = new ControllerParis(Integer.parseInt(groupOne.getSelection().getActionCommand()), Integer.parseInt(groupTwo.getSelection().getActionCommand()));
 				
 			} else if(j13.isSelected()){
-				setNumParis(Integer.parseInt(groupOne.getSelection().getActionCommand()));
-				ModelParis model = new ModelParis(getNumBet(),  Integer.parseInt(groupTwo.getSelection().getActionCommand()));
+				ControllerParis contr = new ControllerParis(Integer.parseInt(groupOne.getSelection().getActionCommand()), Integer.parseInt(groupTwo.getSelection().getActionCommand()));
 				
 			} else if(j14.isSelected()){
-				setNumParis(Integer.parseInt(groupOne.getSelection().getActionCommand()));
-				ModelParis model = new ModelParis(getNumBet(),  Integer.parseInt(groupTwo.getSelection().getActionCommand()));
+				ControllerParis contr = new ControllerParis(Integer.parseInt(groupOne.getSelection().getActionCommand()), Integer.parseInt(groupTwo.getSelection().getActionCommand()));
 				
 			} else if(j15.isSelected()){
-				setNumParis(Integer.parseInt(groupOne.getSelection().getActionCommand()));
-				ModelParis model = new ModelParis(getNumBet(),  Integer.parseInt(groupTwo.getSelection().getActionCommand()));
+				ControllerParis contr = new ControllerParis(Integer.parseInt(groupOne.getSelection().getActionCommand()), Integer.parseInt(groupTwo.getSelection().getActionCommand()));
 				
 			} else if(j16.isSelected()){
-				setNumParis(Integer.parseInt(groupOne.getSelection().getActionCommand()));
-				ModelParis model = new ModelParis(getNumBet(),  Integer.parseInt(groupTwo.getSelection().getActionCommand()));
+				ControllerParis contr = new ControllerParis(Integer.parseInt(groupOne.getSelection().getActionCommand()), Integer.parseInt(groupTwo.getSelection().getActionCommand()));
 				
 			} else if(j17.isSelected()){
-				setNumParis(Integer.parseInt(groupOne.getSelection().getActionCommand()));
-				ModelParis model = new ModelParis(getNumBet(),  Integer.parseInt(groupTwo.getSelection().getActionCommand()));
+				ControllerParis contr = new ControllerParis(Integer.parseInt(groupOne.getSelection().getActionCommand()), Integer.parseInt(groupTwo.getSelection().getActionCommand()));
 				
 			} else if(j18.isSelected()){
-				setNumParis(Integer.parseInt(groupOne.getSelection().getActionCommand()));
-				ModelParis model = new ModelParis(getNumBet(),  Integer.parseInt(groupTwo.getSelection().getActionCommand()));
+				ControllerParis contr = new ControllerParis(Integer.parseInt(groupOne.getSelection().getActionCommand()), Integer.parseInt(groupTwo.getSelection().getActionCommand()));
 				
 			} else if(j19.isSelected()){
-				setNumParis(Integer.parseInt(groupOne.getSelection().getActionCommand()));
-				ModelParis model = new ModelParis(getNumBet(),  Integer.parseInt(groupTwo.getSelection().getActionCommand()));
+				ControllerParis contr = new ControllerParis(Integer.parseInt(groupOne.getSelection().getActionCommand()), Integer.parseInt(groupTwo.getSelection().getActionCommand()));
 				
 			} else if(j20.isSelected()){
-				setNumParis(Integer.parseInt(groupOne.getSelection().getActionCommand()));
-				ModelParis model = new ModelParis(getNumBet(),  Integer.parseInt(groupTwo.getSelection().getActionCommand()));
+				ControllerParis contr = new ControllerParis(Integer.parseInt(groupOne.getSelection().getActionCommand()), Integer.parseInt(groupTwo.getSelection().getActionCommand()));
 				
 			} else if(j21.isSelected()){
-				setNumParis(Integer.parseInt(groupOne.getSelection().getActionCommand()));
-				ModelParis model = new ModelParis(getNumBet(),  Integer.parseInt(groupTwo.getSelection().getActionCommand()));
+				ControllerParis contr = new ControllerParis(Integer.parseInt(groupOne.getSelection().getActionCommand()), Integer.parseInt(groupTwo.getSelection().getActionCommand()));
 				
 			} else if(j22.isSelected()){
-				setNumParis(Integer.parseInt(groupOne.getSelection().getActionCommand()));
-				ModelParis model = new ModelParis(getNumBet(),  Integer.parseInt(groupTwo.getSelection().getActionCommand()));
+				ControllerParis contr = new ControllerParis(Integer.parseInt(groupOne.getSelection().getActionCommand()), Integer.parseInt(groupTwo.getSelection().getActionCommand()));
 				
 			} else if(j23.isSelected()){
-				setNumParis(Integer.parseInt(groupOne.getSelection().getActionCommand()));
-				ModelParis model = new ModelParis(getNumBet(),  Integer.parseInt(groupTwo.getSelection().getActionCommand()));
+				ControllerParis contr = new ControllerParis(Integer.parseInt(groupOne.getSelection().getActionCommand()), Integer.parseInt(groupTwo.getSelection().getActionCommand()));
 				
 			} else if(j24.isSelected()){
-				setNumParis(Integer.parseInt(groupOne.getSelection().getActionCommand()));
-				ModelParis model = new ModelParis(getNumBet(),  Integer.parseInt(groupTwo.getSelection().getActionCommand()));
+				ControllerParis contr = new ControllerParis(Integer.parseInt(groupOne.getSelection().getActionCommand()), Integer.parseInt(groupTwo.getSelection().getActionCommand()));
 				
 			} else if(j25.isSelected()){
-				setNumParis(Integer.parseInt(groupOne.getSelection().getActionCommand()));
-				ModelParis model = new ModelParis(getNumBet(),  Integer.parseInt(groupTwo.getSelection().getActionCommand()));
+				ControllerParis contr = new ControllerParis(Integer.parseInt(groupOne.getSelection().getActionCommand()), Integer.parseInt(groupTwo.getSelection().getActionCommand()));
 				
 			} else if(j26.isSelected()){
-				setNumParis(Integer.parseInt(groupOne.getSelection().getActionCommand()));
-				ModelParis model = new ModelParis(getNumBet(),  Integer.parseInt(groupTwo.getSelection().getActionCommand()));
-				
+				ControllerParis contr = new ControllerParis(Integer.parseInt(groupOne.getSelection().getActionCommand()), Integer.parseInt(groupTwo.getSelection().getActionCommand()));
 			} else if(j27.isSelected()){
-				setNumParis(Integer.parseInt(groupOne.getSelection().getActionCommand()));
-				ModelParis model = new ModelParis(getNumBet(),  Integer.parseInt(groupTwo.getSelection().getActionCommand()));
-				
+				ControllerParis contr = new ControllerParis(Integer.parseInt(groupOne.getSelection().getActionCommand()), Integer.parseInt(groupTwo.getSelection().getActionCommand()));
 			} else if(j28.isSelected()){
-				setNumParis(Integer.parseInt(groupOne.getSelection().getActionCommand()));
-				ModelParis model = new ModelParis(getNumBet(),  Integer.parseInt(groupTwo.getSelection().getActionCommand()));
-				
+				ControllerParis contr = new ControllerParis(Integer.parseInt(groupOne.getSelection().getActionCommand()), Integer.parseInt(groupTwo.getSelection().getActionCommand()));		
 			} else if(j29.isSelected()){
-				setNumParis(Integer.parseInt(groupOne.getSelection().getActionCommand()));
-				ModelParis model = new ModelParis(getNumBet(),  Integer.parseInt(groupTwo.getSelection().getActionCommand()));
-				
+				ControllerParis contr = new ControllerParis(Integer.parseInt(groupOne.getSelection().getActionCommand()), Integer.parseInt(groupTwo.getSelection().getActionCommand()));		
 			} else if(j30.isSelected()){
-				setNumParis(Integer.parseInt(groupOne.getSelection().getActionCommand()));
-				ModelParis model = new ModelParis(getNumBet(),  Integer.parseInt(groupTwo.getSelection().getActionCommand()));
-				
+				ControllerParis contr = new ControllerParis(Integer.parseInt(groupOne.getSelection().getActionCommand()), Integer.parseInt(groupTwo.getSelection().getActionCommand()));	
 			} else if(j31.isSelected()){
-				setNumParis(Integer.parseInt(groupOne.getSelection().getActionCommand()));
-				ModelParis model = new ModelParis(getNumBet(),  Integer.parseInt(groupTwo.getSelection().getActionCommand()));
-				
+				ControllerParis contr = new ControllerParis(Integer.parseInt(groupOne.getSelection().getActionCommand()), Integer.parseInt(groupTwo.getSelection().getActionCommand()));		
 			} else if(j32.isSelected()){
-				setNumParis(Integer.parseInt(groupOne.getSelection().getActionCommand()));
-				ModelParis model = new ModelParis(getNumBet(),  Integer.parseInt(groupTwo.getSelection().getActionCommand()));
-				
+				ControllerParis contr = new ControllerParis(Integer.parseInt(groupOne.getSelection().getActionCommand()), Integer.parseInt(groupTwo.getSelection().getActionCommand()));		
 			} else if(j33.isSelected()){
-				setNumParis(Integer.parseInt(groupOne.getSelection().getActionCommand()));
-				ModelParis model = new ModelParis(getNumBet(),  Integer.parseInt(groupTwo.getSelection().getActionCommand()));
-				
+				ControllerParis contr = new ControllerParis(Integer.parseInt(groupOne.getSelection().getActionCommand()), Integer.parseInt(groupTwo.getSelection().getActionCommand()));		
 			} else if(j34.isSelected()){
-				setNumParis(Integer.parseInt(groupOne.getSelection().getActionCommand()));
-				ModelParis model = new ModelParis(getNumBet(),  Integer.parseInt(groupTwo.getSelection().getActionCommand()));
-				
+				ControllerParis contr = new ControllerParis(Integer.parseInt(groupOne.getSelection().getActionCommand()), Integer.parseInt(groupTwo.getSelection().getActionCommand()));			
 			} else if(j35.isSelected()){
-				setNumParis(Integer.parseInt(groupOne.getSelection().getActionCommand()));
-				ModelParis model = new ModelParis(getNumBet(),  Integer.parseInt(groupTwo.getSelection().getActionCommand()));
-				
+				ControllerParis contr = new ControllerParis(Integer.parseInt(groupOne.getSelection().getActionCommand()), Integer.parseInt(groupTwo.getSelection().getActionCommand()));			
 			} else if(j36.isSelected()){
-				setNumParis(Integer.parseInt(groupOne.getSelection().getActionCommand()));
-				ModelParis model = new ModelParis(getNumBet(),  Integer.parseInt(groupTwo.getSelection().getActionCommand()));
+				ControllerParis contr = new ControllerParis(Integer.parseInt(groupOne.getSelection().getActionCommand()), Integer.parseInt(groupTwo.getSelection().getActionCommand()));
 			}	
 		} 	
 			break;
 			
 			case "RESET" :
-				ModelParis.nbLost = 0;
-				ModelParis.nbWon = 0;
-				ModelParis.total = 2500;
-				ModelParis.totalLost = 0;
-				ModelParis.totalWon = 0;
-				ModelParis.totalWL = 0;
-				bet.setText(Double.toString(ModelParis.total) + " €");
-				errorMsg.setText("Game reset !");
-				totalWon.setText(Double.toString(ModelParis.totalWon));
-				totalLost.setText(Double.toString(ModelParis.totalLost));
-				totalWL.setText(Double.toString(ModelParis.totalWL));
-				nbFailed.setText(Integer.toString(ModelParis.nbLost));
-				nbWon.setText(Integer.toString(ModelParis.nbWon));
+				ControllerParis.reset();
 				break;
 			case "QUIT" :
 				
@@ -1125,8 +1053,14 @@ public class ViewParisGUI extends JPanel implements ActionListener{
 		return numBet;
 	}
 
-	public static void setNumParis(int numParis) {
+	public static void setNumBet(int numParis) {
 		ViewParisGUI.numBet = numParis;
+	}
+	public static int getSelect() {
+		return select;
+	}
+	public static void setSelect(int select) {
+		ViewParisGUI.select = select;
 	}
 
 }

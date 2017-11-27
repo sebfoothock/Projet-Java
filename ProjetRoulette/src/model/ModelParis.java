@@ -1,6 +1,7 @@
 package model;
 import java.util.Random;
 
+import controller.ControllerParis;
 import model.Case;
 import view.ViewParisGUI;
 import view.ViewParisFenetre;
@@ -46,145 +47,108 @@ public class ModelParis{
 		//si entre 1 & 36
 		if(pOne.getNumP() >= 0 && pOne.getNumP() <=36){
 			if(pOne.getNumP() == numR){
-				win(36);
+				ControllerParis.win(36);
 			} else {
-				lost();
+				ControllerParis.lost();
 			}
 		}
 		
 		//si rouge ou noir
 		if(pOne.getNumP() == 37){
 			if(((Case) getArrayCase(pOne.getNumP())).getColor() == ((Case) getArrayCase(getNumR())).getColor()){
-				win(2);
+				ControllerParis.win(2);
 			} else {
-				lost();
+				ControllerParis.lost();
 			}
 		}
 		if(pOne.getNumP() == 38){
 			if(((Case) getArrayCase(pOne.getNumP())).getColor() == ((Case) getArrayCase(getNumR())).getColor()){
-				win(2);
+				ControllerParis.win(2);
 			} else {
-				lost();
+				ControllerParis.lost();
 			}
 		}
 			
 		//si on parie sur pair impair
 		if(pOne.getNumP() == 39){
 			if(((Case) getArrayCase(pOne.getNumP())).getParity() == ((Case) getArrayCase(getNumR())).getParity()){
-				win(2);
+				ControllerParis.win(2);
 			} else {
-				lost();
+				ControllerParis.lost();
 			}
 		}
 		if(pOne.getNumP() == 40){
 			if(((Case) getArrayCase(pOne.getNumP())).getParity() == ((Case) getArrayCase(getNumR())).getParity()){
-				win(2);
+				ControllerParis.win(2);
 			} else {
-				lost();
+				ControllerParis.lost();
 			}
 		}
 		
 		// pari sur intervals
 		if(pOne.getNumP() == 41){
 			if(((Case) getArrayCase(pOne.getNumP())).getIntervals() == ((Case) getArrayCase(getNumR())).getIntervals()){
-				win(3);
+				ControllerParis.win(3);
 			} else {
-				lost();
+				ControllerParis.lost();
 			}
 		}
 		if(pOne.getNumP() == 42){
 			if(((Case) getArrayCase(pOne.getNumP())).getIntervals() == ((Case) getArrayCase(getNumR())).getIntervals()){
-				win(3);
+				ControllerParis.win(3);
 			} else {
-				lost();
+				ControllerParis.lost();
 			}
 		}
 		if(pOne.getNumP() == 43){
 			if(((Case) getArrayCase(pOne.getNumP())).getIntervals() == ((Case) getArrayCase(getNumR())).getIntervals()){
-				win(3);
+				ControllerParis.win(3);
 			} else {
-				lost();
+				ControllerParis.lost();
 			}
 		}
 		
 		// pari sur colonne
 		if(pOne.getNumP() == 44){
 			if(((Case) getArrayCase(pOne.getNumP())).getColumn() == ((Case) getArrayCase(getNumR())).getColumn()){
-				win(3);
+				ControllerParis.win(3);
 			} else {
-				lost();
+				ControllerParis.lost();
 			}
 		}
 		if(pOne.getNumP() == 45){
 			if(((Case) getArrayCase(pOne.getNumP())).getColumn() == ((Case) getArrayCase(getNumR())).getColumn()){
-				win(3);
+				ControllerParis.win(3);
 			} else {
-				lost();
+				ControllerParis.lost();
 			}
 		}
 		if(pOne.getNumP() == 46){
 			if(((Case) getArrayCase(pOne.getNumP())).getColumn() == ((Case) getArrayCase(getNumR())).getColumn()){
-				win(3);
+				ControllerParis.win(3);
 			} else {
-				lost();
+				ControllerParis.lost();
 			}
 		}
 		
 		// 1-18 19-36
 		if(pOne.getNumP() == 47){
 			if(numR >= 1 && numR <= 18){
-				win(2);
+				ControllerParis.win(2);
 			} else {
-				lost();
+				ControllerParis.lost();
 			}
 		}
 		if(pOne.getNumP() == 48){
 			if(numR >= 19 && numR <= 36){
-				win(2);
+				ControllerParis.win(2);
 			} else {
-				lost();
+				ControllerParis.lost();
 			}
 		}
 	}
 	
-	/**
-	 * This method is return if the player win his bet.
-	 * The method add the amount won in total.
-	 * @param ratio is the coefficient to know the the amount won.	
-	 */
-	public static void win(int ratio){
-		setTotal(getTotal() - pOne.getAmount());
-		winAmount = pOne.getAmount() * ratio;
-		setTotal(getTotal() + winAmount);
-		totalWon = totalWon + winAmount - pOne.getAmount();
-		setTotalWL(totalWon - totalLost);
-		nbWon += 1;
-		setNbWon(getNbWon());
-		ViewParisGUI.bet.setText(Double.toString(getTotal()) + " €");
-		ViewParisGUI.errorMsg.setText("You win ! The number is : " + ModelParis.getNumR());
-		ViewParisGUI.totalWon.setText(Double.toString(getTotalWon()));
-		ViewParisGUI.totalWL.setText(Double.toString(getTotalWL()));
-		ViewParisGUI.nbWon.setText(Integer.toString(getNbWon()));
-		
-	}
 	
-	/**
-	 * This method is return the player loose his bet.
-	 */
-	public static void lost(){
-		setTotal(getTotal() - pOne.getAmount());
-		totalLost = totalLost + pOne.getAmount();
-		setTotalWL(totalWon - totalLost);
-		nbLost += 1;
-		setNbLost(getNbLost());
-		ViewParisGUI.bet.setText(Double.toString(getTotal()) + " €");
-		ViewParisGUI.errorMsg.setText("you loose ! The number is : " + ModelParis.getNumR());
-		ViewParisGUI.totalLost.setText(Double.toString(getTotalLost()));
-		ViewParisGUI.totalWL.setText(Double.toString(getTotalWL()));
-		ViewParisGUI.nbFailed.setText(Integer.toString(getNbLost()));
-		
-		
-	}
 	
 	/**
 	 * Return the bet number from the player.
@@ -282,7 +246,7 @@ public class ModelParis{
 	 * 
 	 * @return the player
 	 */
-	public Player getpOne() {
+	public static Player getpOne() {
 		return pOne;
 	}
 	
@@ -357,6 +321,22 @@ public class ModelParis{
 
 	public static void setNbLost(int nbLost) {
 		ModelParis.nbLost = nbLost;
+	}
+
+	public static double getWinAmount() {
+		return winAmount;
+	}
+
+	public static void setWinAmount(double winAmount) {
+		ModelParis.winAmount = winAmount;
+	}
+
+	public static double getAmountP() {
+		return amountP;
+	}
+
+	public static void setAmountP(double amountP) {
+		ModelParis.amountP = amountP;
 	}
 
 }
