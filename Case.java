@@ -5,8 +5,7 @@ import java.util.Scanner;
  * @author Sébastien Raemdonck 2TL2
  * This class is the costructor to create one case of the play mat cases 
  */
-public class Case {
-	
+public class Case {	
 	private int num;
 	private String parity;
 	private String color;
@@ -37,24 +36,36 @@ public class Case {
 	public void setColor(String color) {
 		this.color = color;
 	}
+	/**
+	 * @return the num of the case
+	 */
 	public int getNum() {
 		return num;
 	}
 	public void setNum(int num) {
 		this.num = num;
 	}
+	/**
+	 * @return the parity of the case
+	 */
 	public String getParity() {
 		return parity;
 	}
 	public void setParity(String parity) {
 		this.parity = parity;
 	}
+	/**
+	 * @return the interval of the case
+	 */
 	public int getIntervals() {
 		return intervals;
 	}
 	public void setIntervals(int intervals) {
 		this.intervals = intervals;
 	}
+	/**
+	 * @return the column of the case
+	 */
 	public int getColumn() {
 		return column;
 	}
