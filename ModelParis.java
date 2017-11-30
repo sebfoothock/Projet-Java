@@ -176,9 +176,7 @@ public class ModelParis extends Observable{
 	 */
 	public static int getNumR(){
 		Random randGen = new Random();
-		int numR;
-		numR = randGen.nextInt(37);
-		return numR;
+		return randGen.nextInt(37);
 	}
 	
 	/**
