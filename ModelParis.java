@@ -1,7 +1,6 @@
 package model;
 import java.util.Observable;
 import java.util.Random;
-
 import model.Case;
 /**
  * @author JULIEN
@@ -142,12 +141,12 @@ public class ModelParis extends Observable{
 	/**
 	 * This method is return if the player win his bet.
 	 * The method add the amount won in total.
-	 * @param ratio is the coefficient to know the the amount won.	
+	 * @param ratio is the coefficient to know the amount won.	
 	 */
 	public static void gagne(int ratio){
 		winAmount = pUn.getAmount() * ratio;
 		total = total + winAmount;
-		System.out.println("gagné!");
+		System.out.println("gagnÃ©!");
 	}
 	
 	/**
