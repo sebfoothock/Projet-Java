@@ -3,7 +3,7 @@ import java.util.Observable;
 import java.util.Random;
 import model.Case;
 /**
- * @author JULIEN
+ * @author Julien, Sebastien, Maximilien
  * This class is the main bet model.
  */
 public class ModelParis extends Observable{
