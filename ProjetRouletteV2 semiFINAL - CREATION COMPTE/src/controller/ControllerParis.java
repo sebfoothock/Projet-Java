@@ -15,7 +15,7 @@ import view.ViewParisGUI;
 
 public class ControllerParis {
 	private static ModelParis model;
-	private static ViewParisFenetre vue;
+	//private static ViewParisFenetre vue;
 	//private static ViewBetConsole cons;
 	private static JLabel totalWon;
 	
