@@ -5,8 +5,8 @@ import java.awt.EventQueue;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 
-import model.ModelParis;
-import model.SQL;
+//import model.ModelParis;
+//import model.SQL;
  
 public class ViewParisFenetre extends JFrame {
     private static final long serialVersionUID = 1L;
