@@ -16,7 +16,7 @@ import view.ViewParisGUI;
 public class ControllerParis {
 	private static ModelParis model;
 	private static ViewParisFenetre vue;
-	private static ViewBetConsole cons;
+	//private static ViewBetConsole cons;
 	private static JLabel totalWon;
 	
 	public ControllerParis(int num, int amount){
@@ -39,14 +39,14 @@ public class ControllerParis {
 		ModelParis.setNbWon(ModelParis.getNbWon() + 1);
 		SQL.maj(SQL.getId());
 		SQL.recup(SQL.getPlayer());
-		ViewParisGUI.getBet().setText(Double.toString(ModelParis.getTotal()) + " €");
+		ViewParisGUI.getBet().setText(Double.toString(ModelParis.getTotal()) + " â‚¬");
 		ViewParisGUI.getErrorMsg().setText("You win ! The number is : " + ModelParis.getNumR());
 		ViewParisGUI.getTotalWon().setText(Double.toString(ModelParis.getTotalWon()));
 		ViewParisGUI.getTotalWL().setText(Double.toString(ModelParis.getTotalWL()));
 		ViewParisGUI.getNbWon().setText(Integer.toString(ModelParis.getNbWon()));
 		System.out.println("You win ! The number is : " + ModelParis.getNumR());
 		System.out.println("You win : " + ModelParis.getWinAmount());
-		System.out.println("You have : " + ModelParis.getTotal() + "€");
+		System.out.println("You have : " + ModelParis.getTotal() + "â‚¬");
 	}
 	
 	/**
@@ -60,18 +60,18 @@ public class ControllerParis {
 		ModelParis.setNbLost(ModelParis.getNbLost());
 		SQL.maj(SQL.getId());
 		SQL.recup(SQL.getPlayer());
-		ViewParisGUI.getBet().setText(Double.toString(ModelParis.getTotal()) + " €");
+		ViewParisGUI.getBet().setText(Double.toString(ModelParis.getTotal()) + " â‚¬");
 		ViewParisGUI.getErrorMsg().setText("you loose ! The number is : " + ModelParis.getNumR());
 		ViewParisGUI.getTotalLost().setText(Double.toString(ModelParis.getTotalLost()));
 		ViewParisGUI.getTotalWL().setText(Double.toString(ModelParis.getTotalWL()));
 		ViewParisGUI.getNbFailed().setText(Integer.toString(ModelParis.getNbLost()));
 		System.out.println("You loose ! The number is : " + ModelParis.getNumR());
-		System.out.println("You have : " + ModelParis.getTotal() + "€");
+		System.out.println("You have : " + ModelParis.getTotal() + "â‚¬");
 		
 	}
 	public static void reset() {
 		SQL.reset(SQL.getId());
-		ViewParisGUI.getBet().setText(Double.toString(ModelParis.getTotal()) + " €");
+		ViewParisGUI.getBet().setText(Double.toString(ModelParis.getTotal()) + " â‚¬");
 		ViewParisGUI.getErrorMsg().setText("Game reset !");
 		ViewParisGUI.getTotalWon().setText(Double.toString(ModelParis.getTotalWon()));
 		ViewParisGUI.getTotalLost().setText(Double.toString(ModelParis.getTotalLost()));
