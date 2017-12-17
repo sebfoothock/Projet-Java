@@ -9,14 +9,14 @@ import javax.swing.JLabel;
 
 import model.Bet;
 import model.SQL;
-import view.ViewBetConsole;
-import view.ViewBetWindow;
+//import view.ViewBetConsole;
+//import view.ViewBetWindow;
 import view.ViewBetGUI;
 
 public class BetController {
 	private static Bet model;
-	private static ViewBetWindow vue;
-	private static ViewBetConsole cons;
+	//private static ViewBetWindow vue;
+	//private static ViewBetConsole cons;
 	private static JLabel totalWon;
 	
 	public BetController(int num, int amount){
@@ -39,14 +39,14 @@ public class BetController {
 		Bet.setNbWon(Bet.getNbWon() + 1);
 		SQL.maj(SQL.getId());
 		SQL.recup(SQL.getPlayer());
-		ViewBetGUI.getBet().setText(Double.toString(Bet.getTotal()) + " €");
+		ViewBetGUI.getBet().setText(Double.toString(Bet.getTotal()) + " â‚¬");
 		ViewBetGUI.getErrorMsg().setText("You win ! The number is : " + Bet.getNumR());
 		ViewBetGUI.getTotalWon().setText(Double.toString(Bet.getTotalWon()));
 		ViewBetGUI.getTotalWL().setText(Double.toString(Bet.getTotalWL()));
 		ViewBetGUI.getNbWon().setText(Integer.toString(Bet.getNbWon()));
 		System.out.println("You win ! The number is : " + Bet.getNumR());
 		System.out.println("You win : " + Bet.getWinAmount());
-		System.out.println("You have : " + Bet.getTotal() + "€");
+		System.out.println("You have : " + Bet.getTotal() + "â‚¬");
 	}
 	
 	/**
@@ -60,13 +60,13 @@ public class BetController {
 		Bet.setNbLost(Bet.getNbLost());
 		SQL.maj(SQL.getId());
 		SQL.recup(SQL.getPlayer());
-		ViewBetGUI.getBet().setText(Double.toString(Bet.getTotal()) + " €");
+		ViewBetGUI.getBet().setText(Double.toString(Bet.getTotal()) + " â‚¬");
 		ViewBetGUI.getErrorMsg().setText("you loose ! The number is : " + Bet.getNumR());
 		ViewBetGUI.getTotalLost().setText(Double.toString(Bet.getTotalLost()));
 		ViewBetGUI.getTotalWL().setText(Double.toString(Bet.getTotalWL()));
 		ViewBetGUI.getNbFailed().setText(Integer.toString(Bet.getNbLost()));
 		System.out.println("You loose ! The number is : " + Bet.getNumR());
-		System.out.println("You have : " + Bet.getTotal() + "€");
+		System.out.println("You have : " + Bet.getTotal() + "â‚¬");
 		
 	}
 	/**
@@ -74,7 +74,7 @@ public class BetController {
 	 */
 	public static void reset() {
 		SQL.reset(SQL.getId());
-		ViewBetGUI.getBet().setText(Double.toString(Bet.getTotal()) + " €");
+		ViewBetGUI.getBet().setText(Double.toString(Bet.getTotal()) + " â‚¬");
 		ViewBetGUI.getErrorMsg().setText("Game reset !");
 		ViewBetGUI.getTotalWon().setText(Double.toString(Bet.getTotalWon()));
 		ViewBetGUI.getTotalLost().setText(Double.toString(Bet.getTotalLost()));
