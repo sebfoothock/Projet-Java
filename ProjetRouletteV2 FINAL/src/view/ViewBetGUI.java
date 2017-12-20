@@ -23,12 +23,12 @@ import javax.swing.SwingConstants;
 import controller.BetController;
 /**
  * This class is the GUI view of the application
- * @author JULIEN
- *
+ * @author MASSON JULIEN 2TL2
+ * GROUPE 17
  */
 public class ViewBetGUI extends JPanel implements ActionListener{
  
-    private static final long serialVersionUID = 1L;
+    
  
 
     private Image img;

@@ -11,7 +11,8 @@ import view.ViewBetHome;
 import view.ViewBetWindow;
 /**
  * This methods allows the connection between the program and the DBA on my SQL.
- * @author JULIEN
+ * @author MASSON JULIEN 2TL2
+ * GROUPE 17
  *
  */
 public class SQL {
@@ -54,8 +55,8 @@ public class SQL {
 			if(rs.next()) {
 				ViewBetHome.closeHome();
 				SQL.recup(player);
-				ViewBetWindow.window();
-				//ViewBetConsole.cons();
+				vue.window();
+				//cons.cons();
 			} else {
 				ViewBetHome.getErrorMsg().setText("INCORRECT LOGIN OR PASSWORD");
 				ViewBetHome.getTextUser().setText("");

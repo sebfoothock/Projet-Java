@@ -19,7 +19,12 @@ import javax.swing.JTextField;
 import javax.swing.JButton;
 import javax.swing.LayoutStyle.ComponentPlacement;
 import javax.swing.SwingConstants;
-
+/**
+ * This class is the create account frame
+ * @author MASSON JULIEN 2TL2
+ * GROUPE 17
+ *
+ */
 public class ViewBetAccount extends JFrame implements ActionListener {
 
 	private JPanel contentPane;

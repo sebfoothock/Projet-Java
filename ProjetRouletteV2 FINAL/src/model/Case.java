@@ -1,9 +1,10 @@
 package model;
 import java.util.Scanner;
 /**
+ * @author MASSON JULIEN 2TL2
+ * GROUPE 17
  * 
- * @author JULIEN
- * This class is the costructor to create one case of the play mat cases 
+ * This class is the constructor to create one case of the play mat cases 
  */
 public class Case {
 	

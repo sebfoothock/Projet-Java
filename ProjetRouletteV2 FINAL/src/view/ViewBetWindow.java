@@ -4,9 +4,13 @@ import java.awt.EventQueue;
 
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
- 
+/**
+ * This class is the class that insert the background image in the main window "ViewBetGUI"
+ * @author MASSON JULIEN 2TL2
+ * GROUPE 17
+ *
+ */
 public class ViewBetWindow extends JFrame {
-    private static final long serialVersionUID = 1L;
     private static ViewBetWindow vue = new ViewBetWindow();
     public ViewBetWindow(){
         this.setContentPane(new ViewBetGUI(new ImageIcon("img\\jeuVierge3.jpg").getImage()));

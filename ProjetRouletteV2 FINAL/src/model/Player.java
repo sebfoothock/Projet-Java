@@ -1,7 +1,8 @@
 package model;
 /**
  * this class is the constructor to create a player
- * @author JULIEN
+ * @author MASSON JULIEN 2TL2
+ * GROUPE 17
  *
  */
 public class Player {

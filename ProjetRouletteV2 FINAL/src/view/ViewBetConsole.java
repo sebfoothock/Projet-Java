@@ -5,7 +5,12 @@ import java.util.Scanner;
 
 import controller.BetController;
 import model.Bet;
-
+/**
+ * This class is the console view of the program
+ * @author MASSON JULIEN 2TL2
+ * GROUPE 17
+ *
+ */
 public class ViewBetConsole {
 	private static Scanner keyboard = new Scanner(System.in);
 	private static Random generator = new Random();

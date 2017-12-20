@@ -23,10 +23,14 @@ import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
 
 import model.SQL;
-
+/**
+ * This class is the home frame of the application
+ * @author MASSON JULIEN 2TL2
+ * GROUPE 17
+ *
+ */
 public class ViewBetHome extends JFrame implements ActionListener{
 	
-	private static final long serialVersionUID = 1L;
 	
 	static ViewBetHome home ;
 	
