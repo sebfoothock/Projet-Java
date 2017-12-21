@@ -25,7 +25,7 @@ import javax.swing.border.EmptyBorder;
 import model.SQL;
 /**
  * This class is the home frame of the application
- * @author MASSON JULIEN 2TL2
+ * @author MASSON JULIEN, LAMBERT MAXIMLILIEN, RAEMDONCK SEBASTIEN 2TL2
  * GROUPE 17
  *
  */
