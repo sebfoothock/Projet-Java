@@ -9,7 +9,7 @@ import java.io.FileNotFoundException;
 /**
  * This class return the sound of the wheel when the player spin the wheel.
  * It is import with an extern API found on the web.
- * @author MASSON JULIEN 2TL2
+ * @author MASSON JULIEN, LAMBERT MAXIMLILIEN, RAEMDONCK SEBASTIEN 2TL2
  * GROUPE 17
  *
  */
