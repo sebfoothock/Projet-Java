@@ -14,7 +14,7 @@ import view.ViewBetWindow;
 import view.ViewBetGUI;
 /**
  * This class is the controller of the program
- * @author MASSON JULIEN, LAMBERT MAXIMLILIEN, RAEMDONCK SEBASTIEN 2TL2
+ * @author MASSON JULIEN RAEMDONCK SEBASTIEN LAMBERT MAXIMILIEN 2TL2
  * GROUPE 17
  *
  */
@@ -44,14 +44,14 @@ public class BetController {
 		Bet.setNbWon(Bet.getNbWon() + 1);
 		SQL.maj(SQL.getId());
 		SQL.recup(SQL.getPlayer());
-		ViewBetGUI.getBet().setText(Double.toString(Bet.getTotal()) + " â‚¬");
+		ViewBetGUI.getBet().setText(Double.toString(Bet.getTotal()) + " €");
 		ViewBetGUI.getErrorMsg().setText("You win ! The number is : " + Bet.getNumR());
 		ViewBetGUI.getTotalWon().setText(Double.toString(Bet.getTotalWon()));
 		ViewBetGUI.getTotalWL().setText(Double.toString(Bet.getTotalWL()));
 		ViewBetGUI.getNbWon().setText(Integer.toString(Bet.getNbWon()));
 		System.out.println("You win ! The number is : " + Bet.getNumR());
 		System.out.println("You win : " + Bet.getWinAmount());
-		System.out.println("You have : " + Bet.getTotal() + "â‚¬");
+		System.out.println("You have : " + Bet.getTotal() + "€");
 	}
 	
 	/**
@@ -65,13 +65,13 @@ public class BetController {
 		Bet.setNbLost(Bet.getNbLost());
 		SQL.maj(SQL.getId());
 		SQL.recup(SQL.getPlayer());
-		ViewBetGUI.getBet().setText(Double.toString(Bet.getTotal()) + " â‚¬");
+		ViewBetGUI.getBet().setText(Double.toString(Bet.getTotal()) + " €");
 		ViewBetGUI.getErrorMsg().setText("you loose ! The number is : " + Bet.getNumR());
 		ViewBetGUI.getTotalLost().setText(Double.toString(Bet.getTotalLost()));
 		ViewBetGUI.getTotalWL().setText(Double.toString(Bet.getTotalWL()));
 		ViewBetGUI.getNbFailed().setText(Integer.toString(Bet.getNbLost()));
 		System.out.println("You loose ! The number is : " + Bet.getNumR());
-		System.out.println("You have : " + Bet.getTotal() + "â‚¬");
+		System.out.println("You have : " + Bet.getTotal() + "€");
 		
 	}
 	/**
@@ -79,7 +79,7 @@ public class BetController {
 	 */
 	public static void reset() {
 		SQL.reset(SQL.getId());
-		ViewBetGUI.getBet().setText(Double.toString(Bet.getTotal()) + " â‚¬");
+		ViewBetGUI.getBet().setText(Double.toString(Bet.getTotal()) + " €");
 		ViewBetGUI.getErrorMsg().setText("Game reset !");
 		ViewBetGUI.getTotalWon().setText(Double.toString(Bet.getTotalWon()));
 		ViewBetGUI.getTotalLost().setText(Double.toString(Bet.getTotalLost()));

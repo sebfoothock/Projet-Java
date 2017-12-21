@@ -4,7 +4,7 @@ import java.util.Random;
 
 import controller.BetController;
 /**
- * @author MASSON JULIEN, LAMBERT MAXIMLILIEN, RAEMDONCK SEBASTIEN 2TL2 
+ * @author MASSON JULIEN RAEMDONCK SEBASTIEN LAMBERT MAXIMILIEN 2TL2
  * GROUPE 17
  * 
  * This class is the main bet model.

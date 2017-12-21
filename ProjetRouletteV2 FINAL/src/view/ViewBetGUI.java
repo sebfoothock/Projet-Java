@@ -23,7 +23,7 @@ import javax.swing.SwingConstants;
 import controller.BetController;
 /**
  * This class is the GUI view of the application
- * @author MASSON JULIEN, LAMBERT MAXIMLILIEN, RAEMDONCK SEBASTIEN 2TL2
+ * @author MASSON JULIEN RAEMDONCK SEBASTIEN LAMBERT MAXIMILIEN 2TL2
  * GROUPE 17
  */
 public class ViewBetGUI extends JPanel implements ActionListener{
@@ -133,7 +133,7 @@ public class ViewBetGUI extends JPanel implements ActionListener{
         balanceAmount.setForeground(Color.WHITE);
         balanceAmount.setFont(new Font("Stencil", Font.PLAIN, 16));
         
-        bet = new JLabel(Integer.toString(SQL.getTotal()) + "â‚¬");
+        bet = new JLabel(Integer.toString(SQL.getTotal()) + "€");
         bet.setForeground(Color.WHITE);
         bet.setFont(new Font("Stencil", Font.PLAIN, 16));
         
@@ -476,7 +476,7 @@ public class ViewBetGUI extends JPanel implements ActionListener{
         lblWl.setFont(new Font("Stencil", Font.PLAIN, 20));
         lblWl.setForeground(Color.WHITE);
         
-        totalWon = new JLabel(Double.toString(Bet.getTotalWon()) + "â‚¬");
+        totalWon = new JLabel(Double.toString(Bet.getTotalWon()) + "€");
         totalWon.setFont(new Font("Stencil", Font.PLAIN, 20));
         totalWon.setForeground(Color.WHITE);
         
@@ -539,12 +539,12 @@ public class ViewBetGUI extends JPanel implements ActionListener{
         groupTwo.add(betFour);
         groupTwo.add(betFive);
         
-        totalLost = new JLabel(Double.toString(Bet.getTotalLost()) + "â‚¬");
+        totalLost = new JLabel(Double.toString(Bet.getTotalLost()) + "€");
         totalLost.setHorizontalAlignment(SwingConstants.CENTER);
         totalLost.setForeground(Color.WHITE);
         totalLost.setFont(new Font("Stencil", Font.PLAIN, 20));
         
-        totalWL = new JLabel(Double.toString(Bet.getTotalWL()) + "â‚¬");
+        totalWL = new JLabel(Double.toString(Bet.getTotalWL()) + "€");
         totalWL.setForeground(Color.WHITE);
         totalWL.setFont(new Font("Stencil", Font.PLAIN, 20));
         
@@ -905,9 +905,9 @@ public class ViewBetGUI extends JPanel implements ActionListener{
 			sound = new model.Sound();
 			sound.sound();
 			if(Bet.getTotal() == 0) {
-			errorMsg.setText("You have 0â‚¬. Click reset to play again !");
+			errorMsg.setText("You have 0€. Click reset to play again !");
 			} else if(Integer.parseInt(groupTwo.getSelection().getActionCommand()) > Bet.getTotal()) {
-				errorMsg.setText("You want to bet " + groupTwo.getSelection().getActionCommand() + "â‚¬ and you have only " + Bet.getTotal() + "â‚¬");
+				errorMsg.setText("You want to bet " + groupTwo.getSelection().getActionCommand() + "€ and you have only " + Bet.getTotal() + "€");
 			} else if(red.isSelected()) {
 				BetController contr = new BetController(Integer.parseInt(groupOne.getSelection().getActionCommand()), Integer.parseInt(groupTwo.getSelection().getActionCommand()));
 			} else if(black.isSelected()) {

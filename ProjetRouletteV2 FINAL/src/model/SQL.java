@@ -11,7 +11,7 @@ import view.ViewBetHome;
 import view.ViewBetWindow;
 /**
  * This methods allows the connection between the program and the DBA on my SQL.
- * @author MASSON JULIEN, LAMBERT MAXIMLILIEN, RAEMDONCK SEBASTIEN 2TL2
+ * @author MASSON JULIEN RAEMDONCK SEBASTIEN LAMBERT MAXIMILIEN 2TL2
  * GROUPE 17
  *
  */
