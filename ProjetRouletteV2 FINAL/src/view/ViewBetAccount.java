@@ -21,7 +21,7 @@ import javax.swing.LayoutStyle.ComponentPlacement;
 import javax.swing.SwingConstants;
 /**
  * This class is the create account frame
- * @author MASSON JULIEN 2TL2
+ * @author MASSON JULIEN, LAMBERT MAXIMLILIEN, RAEMDONCK SEBASTIEN 2TL2
  * GROUPE 17
  *
  */
