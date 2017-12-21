@@ -1,7 +1,7 @@
 package model;
 /**
  * this class is the constructor to create a player
- * @author MASSON JULIEN 2TL2
+ * @author MASSON JULIEN, LAMBERT MAXIMLILIEN, RAEMDONCK SEBASTIEN 2TL2
  * GROUPE 17
  *
  */
