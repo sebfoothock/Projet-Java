@@ -1,7 +1,7 @@
 package model;
 import java.util.Scanner;
 /**
- * @author MASSON JULIEN 2TL2
+ * @author MASSON JULIEN, LAMBERT MAXIMLILIEN, RAEMDONCK SEBASTIEN 2TL2
  * GROUPE 17
  * 
  * This class is the constructor to create one case of the play mat cases 
