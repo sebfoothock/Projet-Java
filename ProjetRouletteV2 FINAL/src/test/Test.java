@@ -5,7 +5,7 @@ import view.ViewBetHome;
 import view.ViewBetWindow;
 /**
  * This class run the application
- * @author MASSON JULIEN 2TL2
+ * @author MASSON JULIEN, LAMBERT MAXIMLILIEN, RAEMDONCK SEBASTIEN 2TL2
  * GROUPE 17
  *
  */
