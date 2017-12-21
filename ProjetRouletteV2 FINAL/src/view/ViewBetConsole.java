@@ -7,7 +7,7 @@ import controller.BetController;
 import model.Bet;
 /**
  * This class is the console view of the program
- * @author MASSON JULIEN 2TL2
+ * @author MASSON JULIEN, LAMBERT MAXIMLILIEN, RAEMDONCK SEBASTIEN 2TL2
  * GROUPE 17
  *
  */
